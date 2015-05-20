@@ -1,0 +1,52 @@
+#topBar
+{
+    background-color: white;
+    padding: 1%;
+}
+
+#topBarContainer
+{
+    background-color: white;
+}
+
+#topBarHomelink
+{
+    color: black;
+    font-size: 350%;
+    font-family: Aharoni;
+}
+
+#topBarAboutLink 
+{
+    color: black;
+    font-size: 120%;
+    font-family: Aharoni;
+}
+
+#topBarCoursesLink 
+{
+    color: black;
+    font-size: 120%;
+    font-family: Aharoni;
+}
+
+#topBarStaffLink 
+{
+    color: black;
+    font-size: 120%;
+    font-family: Aharoni;
+}
+
+#topBarTourLink 
+{
+    color: black;
+    font-size: 120%;
+    font-family: Aharoni;
+}
+
+#topBarJoinLink 
+{
+    color: black;
+    font-size: 120%;
+    font-family: Aharoni;
+}
