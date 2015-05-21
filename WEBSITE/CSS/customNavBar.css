@@ -1,12 +1,9 @@
-.navbar-static-top 
+#topBar
 {
     margin-bottom: 0%;
     border-bottom: 5%;
     border-bottom-color: black;
-}
-
-#topBar
-{
+    border-style: solid;
     background-color: white;
     padding: 1%;
 }
@@ -16,11 +13,12 @@
     background-color: white;
 }
 
-#topBarHomelink
+#topBarHomeLink
 {
     color: black;
     font-size: 350%;
     font-family: Aharoni;
+    margin: 0%;
 }
 
 #topBarAboutLink 
