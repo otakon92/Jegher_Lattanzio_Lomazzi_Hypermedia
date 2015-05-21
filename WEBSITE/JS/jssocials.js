@@ -352,7 +352,7 @@
         email: {
             label: "E-mail",
             logo: "fa fa-at",
-            shareUrl: "mailto:?subject={}&body={}",
+            shareUrl: "mailto:info@biggymsrl.com?subject={Information request}&body={}",
             countUrl: ""
         },
 
@@ -383,7 +383,7 @@
             logo: "fa fa-google-plus",
             shareUrl: "https://plus.google.com/share?url={url}",
             countUrl: function() {
-                return "https://cors-anywhere.herokuapp.com/https://plusone.google.com/_/+1/fastbutton?url="+ window.encodeURIComponent(this.url);
+                return "https://plusone.google.com/_/+1/fastbutton?url="+ window.encodeURIComponent(this.url);
             },
             getCount: function(data) {
                 return parseFloat((data.match(/\{c: ([.0-9E]+)/) || [])[1]);

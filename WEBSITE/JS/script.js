@@ -1,31 +1,34 @@
-$(document).ready(function(){
-     
+$(document).ready(function () {
+    
+    var offset = 250;
+    var duration = 300;
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > offset) {
+            $('.back-to-top-button').fadeIn(duration);
+        } else {
+            $('.back-to-top-button').fadeOut(duration);
+        }
+    });
+    
+    var i;
+    for(i=0;i<50;i++)
+    {
+        $('#footer').before("TEST <br>");
+    }
+    
+    /*Scroll Plugin*/
+    $(".back-to-top-button").click(function(event) { 
+        $('html, body').animate({scrollTop: 0}, 'slow');
+        event.preventDefault();
+    });
+    
+    /*jsSocials*/
     $("#share").jsSocials({
             showLabel: true,
             showCount: true,
             shares: ["email", "facebook"]
         });
     
-    for($i=0;$i<50;$i++)
-    $('body').prepend("EXTRA <br>");
-    
 });
 
-$(document).on( 'scroll', function(){
- 
-		if ($(window).scrollTop() > 100) {
-			$('.scroll-top-wrapper').addClass('show');
-		} else {
-			$('.scroll-top-wrapper').removeClass('show');
-		}
-    	$('.scroll-top-wrapper').on('click', scrollToTop);
 
-	});
-
-function scrollToTop() {
-	verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
-	element = $('body');
-	offset = element.offset();
-	offsetTop = offset.top;
-	$('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
-}
