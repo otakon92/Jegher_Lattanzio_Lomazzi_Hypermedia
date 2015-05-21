@@ -6,6 +6,8 @@
     border-style: solid;
     background-color: white;
     padding: 1%;
+    background-image: none;
+    box-shadow: none;
 }
 
 #topBarContainer
