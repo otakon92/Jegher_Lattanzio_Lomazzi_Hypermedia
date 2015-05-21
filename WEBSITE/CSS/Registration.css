@@ -1,0 +1,54 @@
+#registrationContent
+{
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: darkgrey;
+}
+#registrationContentLeftHalf
+{
+    width: 50%;
+    display: inline-block;
+}
+#registrationContentRightHalf
+{
+    width: 49%;
+    display: inline-block;
+    float: right;
+}
+#registrationForm
+{
+    height: 40%;
+    margin: 3%;
+    background-color: white;
+    border: 10%;
+    border-style: solid;
+    border-color: black;
+}
+#visitOffers
+{
+    height: 60%;
+    margin: 3%;
+    background-color: #4388CC;
+    border: 10%;
+    border-style: solid;
+    border-color: #1B3280;
+}
+#loginForm
+{
+    height: 20%;
+    margin: 3%;
+    background-color: #4388CC;
+    border: 10%;
+    border-style: solid;
+    border-color: #1B3280;
+}
+#registrationImage
+{
+    height: 80%;
+    margin: 3%;
+    background-color: white;
+    border: 10%;
+    border-style: solid;
+    border-color: black;
+}
+
