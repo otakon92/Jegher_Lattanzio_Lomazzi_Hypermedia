@@ -1,0 +1,92 @@
+/* Smartphones (portrait and landscape) ----------- */ 
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) { /* Styles */ } 
+
+/* Smartphones (landscape) ----------- */ 
+@media only screen and (min-width : 321px) { /* Styles */ } 
+
+/* Smartphones (portrait) ----------- */ 
+@media only screen and (max-width : 320px) { /* Styles */ } 
+
+/* iPads (portrait and landscape) ----------- */ 
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) { /* Styles */ } 
+
+/* iPads (landscape) ----------- */ 
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { /* Styles */ } 
+
+/* iPads (portrait) ----------- */ 
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) { /* Styles */ } 
+
+/* Desktops and laptops ----------- */ 
+@media only screen and (min-width : 1224px) { /* Styles */ } 
+
+/* Large screens ----------- */ 
+@media only screen and (min-width : 1824px) { /* Styles */ } 
+
+/* iPhone 4 ----------- */ 
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) { /* Styles */ } 
+
+*{
+    margin:0;
+    padding:0;
+}
+
+
+#footer{
+    display: block;
+    width:100%;
+    bottom:0px;
+    margin: 0 auto;
+    clear:both;
+    background-color:dodgerblue;
+    overflow:auto;
+}
+
+div.footer_container{
+    overflow:auto;
+}
+
+div.footer_column{
+    display:inline-block;
+    width: 33.3333333333%;
+    position: relative;
+    float:left;
+    padding-top:2%;
+    padding-bottom: 4%;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-family: 'Open Sans', sans-serif;
+    text-align: left;
+    color:white;
+    letter-spacing: 0.7px;
+    vertical-align: top;
+}
+
+h4.footer_content{
+    font-family: 'Open Sans', sans-serif;
+    font-weight:bold;
+    color:#FFCF29;
+}
+
+#ul_footer_content{
+    color:black;
+}
+
+
+.back-to-top-button {
+background: none;
+margin: 0;
+position: fixed;
+bottom: 0;
+right: 0;
+width: 70px;
+height: 70px;
+z-index: 100;
+display: none;
+text-decoration: none;
+color: #ffffff;
+background-color: #ff9000;
+}
+
+.back-to-top-button i {
+  font-size: 60px;
+}
