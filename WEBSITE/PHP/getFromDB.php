@@ -18,7 +18,7 @@ if(mysqli_connect_errno()) //returns a number of the error if there is any, 0 if
 else
 {
        
-    $query="SELECT * FROM course_categories ORDER BY id_course_category;";
+    $query=$POST['query'];
     $result=$mysqli->query($query); //do a query (->query) setted by $query, using the $mysqli variable, and store the data in $result 
     
     if($result->num_rows >0) //if there is at least one row...
@@ -27,12 +27,12 @@ else
         while($row = $result->fetch_array(MYSQL_ASSOC))
         { 
             //...and fetch it. Everytime this operation returns a row,
-            $myArray[]=$row; //...and added to myArray ([] means autoincrement).
+            $myArray[]=array_map('utf8_encode', $row); //...and added to myArray ([] means autoincrement).
         }
  
     }
     
-   echo json_encode(utf8ize($myArray));
+   echo json_encode($myArray);
     
      //free result
     $result->close();
@@ -42,7 +42,7 @@ else
 
 }
 
-//Recursive function that converts in utf8 the content of an a array
+/*//Recursive function that converts in utf8 the content of an a array
 function utf8ize($obj) {
     if (is_array($obj)) {
         foreach ($obj as $k => $v) {
@@ -52,6 +52,6 @@ function utf8ize($obj) {
         return utf8_encode($obj);
     }
     return $obj;
-}
+}*/
 
 ?>
