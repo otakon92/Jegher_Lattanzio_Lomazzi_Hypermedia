@@ -1,30 +1,28 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <title>BigGym</title>
-        <!-- RESPONSIVE TAG -->
-        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-        <!-- utf8 encoding-->
-        <meta charset="utf-8" /> 
-        <!-- CSS -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BigGym-Registration</title>
+    <!-- CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
-        <link rel="stylesheet" type="text/css" href="WEBSITE/CSS/style.css" />
-        <link rel="stylesheet" type="text/css" href="WEBSITE/CSS/customNavBar.css" >
-        <link rel="stylesheet" id="font-awesome-css" href="WEBSITE/css/font-awesome.css" type="text/css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="WEBSITE/CSS/jssocials.css" />
-        <link rel="stylesheet" type="text/css" href="WEBSITE/CSS/jssocials-theme-classic.css" />
-         <!-- JAVASCRIPT -->
+    <link href="../CSS/customNavBar.css" rel="stylesheet">
+    <link href="../CSS/Registration.css" rel="stylesheet">
+        <link rel="stylesheet" id="font-awesome-css" href="../CSS/font-awesome.css" type="text/css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../CSS/jssocials.css" />
+        <link rel="stylesheet" type="text/css" href="../CSS/jssocials-theme-classic.css" />
+        <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+    <!-- JAVASCRIPT -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
-        <script src="WEBSITE/JS/script.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <script src="WEBSITE/JS/jssocials.js"></script>
-        <script src="WEBSITE/JS/ie-emulation-modes-warning.js"></script>
-    </head>
-    <body>
-        
-     <nav class="navbar navbar-default navbar-static-top" id="topBar">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="../JS/jssocials.js"></script>
+    <script src="../JS/ie-emulation-modes-warning.js"></script>
+    <script src="../JS/Registration.js"></script>
+        <script src="../JS/script.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top" id="topBar">
       <div class="container" id="topBarContainer">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -33,7 +31,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#Home" id="topBarHomeLink">BIGGYM</a>
+          <a class="navbar-brand" href="../../index.html" id="topBarHomeLink">BIGGYM</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -41,12 +39,77 @@
             <li><a href="#contact" id="topBarCoursesLink">Courses</a></li>
             <li><a href="#staff" id="topBarStaffLink">Staff</a></li>
             <li><a href="#takeatour" id="topBarTourLink">Take a Tour</a></li>
-            <li><a href="WEBSITE/HTML/Registration.html" id="topBarJoinLink">Join Us</a></li>
+            <li><a href="#joinus" id="topBarJoinLink">Join Us</a></li>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+    <!--Page content--> 
+    <div id="registrationContent">
+        <br/>
+        <div id="registrationContentLeftHalf">
+            <div id="registrationForm"><form class="form-signin">
+        <div id="registerFormHeading">
+        <h2>Are you new?</h2>
+        <h3>Complete your registration in a few steps!</h3>
+        </div>
+                </br>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control customFormInput" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control customFormInput" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="terms-conditions"> Agree to our terms and conditions
+            </label>
+              </br>
+          <label>
+            <input type="checkbox" value="remember-me"> Subscribe to our newsletter
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block customSubmitFormButton" type="submit">Sign in</button>
+      </form>
+            </div>
+            <div id="visitOffers">
+                <p class="offersText">Log in or register
+to be able to sign fo our great offers!
+
+
+Are you a student
+or a full time worker?
+
+We have plenty of time flexible offers
+and coupons for you!
+                </p>
+                <a id="offersDivjoinUsLink" href="#joinus">
+                    <p class="offersText">
+                    Take a look at our prices
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div id="registrationContentRightHalf">
+            <div id="loginForm">
+                <form class="form-signin">
+        <h2 id="registerFormHeading" >Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control customFormInput" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control customFormInput" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block customSubmitFormButton" type="submit">Sign in</button>
+      </form>
+            </div>
+            <div id="registrationImage">
+                
+            </div>
+        </div>
+    </div>
         
-        <footer id="footer">
+       <footer id="footer">
             <div class="footer_container">
                       <div class="footer_column">  
                          <h4 class="footer_content"> ABOUT US </h4> 
@@ -113,7 +176,6 @@
                 <div class="container">
                     2015 - Site built by Andrea Jegher, Riccardo Lomazzi, Emanuele Lattanzio. All rights reserved
                 </div>
-            </div> -->
-    
-    </body>
+            </div> --> 
+</body>
 </html>

@@ -10,12 +10,6 @@ $(document).ready(function () {
         }
     });
     
-    var i;
-    for(i=0;i<50;i++)
-    {
-        $('#footer').before("TEST <br>");
-    }
-    
     /*Scroll Plugin*/
     $(".back-to-top-button").click(function(event) { 
         $('html, body').animate({scrollTop: 0}, 'slow');
