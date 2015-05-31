@@ -1,13 +1,14 @@
 <?php
-    //get all the courses from the database and reply using the JSON structure
+header('Access-Control-Allow-Origin: *');
+//get all the courses from the database and reply using the JSON structure
     
 //echo "I'm the PHP\n";
-
 //MYSQL CONNECTION
 //STANDARD STRUCTURE
 //$mysqli=new msqli("localhost","username","password","dbname");
 
-$mysqli=new mysqli("https://srv-hg2.netsons.net:2083","zmqkdhap","oh80kc9I1N","zmqkdhap_biggym");
+$mysqli=new mysqli("localhost","biggymjll","","my_biggymjll");
+
 
 if(mysqli_connect_errno()) //returns a number of the error if there is any, 0 if not
 {
@@ -17,8 +18,8 @@ if(mysqli_connect_errno()) //returns a number of the error if there is any, 0 if
 }
 else
 {
-       
-    $query=$POST['query'];
+    
+    $query=$_POST["query"];
     $result=$mysqli->query($query); //do a query (->query) setted by $query, using the $mysqli variable, and store the data in $result 
     
     if($result->num_rows >0) //if there is at least one row...
@@ -27,12 +28,13 @@ else
         while($row = $result->fetch_array(MYSQL_ASSOC))
         { 
             //...and fetch it. Everytime this operation returns a row,
-            $myArray[]=array_map('utf8_encode', $row); //...and added to myArray ([] means autoincrement).
+            $myArray[]=$row; //...and added to myArray ([] means autoincrement).
         }
  
     }
     
-   echo json_encode($myArray);
+    
+    echo json_encode(utf8ize($myArray));
     
      //free result
     $result->close();
@@ -42,7 +44,7 @@ else
 
 }
 
-/*//Recursive function that converts in utf8 the content of an a array
+//Recursive function that converts in utf8 the content of an a array
 function utf8ize($obj) {
     if (is_array($obj)) {
         foreach ($obj as $k => $v) {
@@ -52,6 +54,6 @@ function utf8ize($obj) {
         return utf8_encode($obj);
     }
     return $obj;
-}*/
+}
 
 ?>
