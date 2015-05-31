@@ -4,7 +4,7 @@ $(document).ready(function(){
         url:"http://biggymjll.altervista.org/getfromdb.php",
         method:"POST", //metodo per ricevere i dati  
         data:{
-            query: "SELECT * FROM course_categories;"
+            query: "SELECT * FROM course_categories JOIN courses ON course_categories.id_course_category=courses.id_course_category;"
         },
         
         //SUCCESS: creates a div for every single category
@@ -17,7 +17,7 @@ $(document).ready(function(){
                 var categoryID=course_categories[i]['id_course_category'];
                 var categoryName=course_categories[i]['course_category'];
                 var imageUrl=course_categories[i]['cat_bg_img_path'];
-                var box_category="<div class='category' id='category"+ categoryID + "'> <img src='" + imageUrl + "' class='category_image'/> <h2> " + categoryName + "</h2> </div>";
+                var box_category="<div class='category' id='category"+ categoryID + "'> <img src='" + imageUrl + "' class='category_image img-rounded'/> <div class='overlay'> <h2 class='category_name'> " + categoryName + "</h2> </div> </div>";
                 $("#select_category_main_box").after(box_category);
                 
             }  
@@ -28,6 +28,11 @@ $(document).ready(function(){
         }
 
     });
+    
+    
+    
+    //Creating submenus of courses for the specific category
+    
 });
 
 
