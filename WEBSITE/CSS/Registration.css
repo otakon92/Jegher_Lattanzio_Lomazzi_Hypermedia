@@ -9,7 +9,8 @@ label
 }
 #registrationContent
 {
-    margin: 10%;
+    width: 79%;
+    margin: auto;
     margin-top: 2%;
     margin-bottom: 2%;
     padding: 0;
@@ -17,13 +18,14 @@ label
 #registrationContentLeftHalf
 {   
     display: inline-block;
-    width: 49%;
+    margin-left: 7%;
+    width: 43%;
     float: left;
 }
 #registrationContentRightHalf
 {
     display: inline-block;
-    width: 49%;
+    width: 43%;
 }
 #registrationForm
 {
@@ -42,9 +44,9 @@ label
 }
 #visitOffers
 {
-    height: 100%;
     background-color: #4388CC;
     margin-bottom: 20%;
+    padding: 3%;
     border: 10%;
     border-style: solid;
     border-color: #1B3280;
@@ -67,7 +69,7 @@ label
 }
 #registrationImage
 {
-    height: 113.5%;
+    height: 68.7%;
     margin-bottom: 20%;
     margin-left: 10%;
     border-style: solid;
@@ -94,9 +96,12 @@ label
     color: white;
     text-align: center;
     font-family: Aharoni;
+    line-height: 110%;
     
 }
 #offersDivjoinUsLink
 {
-    text-decoration-line:underline;
+    text-decoration: underline;
+    text-decoration-color: white;
+    color: white;
 }
