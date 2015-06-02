@@ -1,0 +1,16 @@
+.offersBox
+{
+    width: 49%;
+    background-color: cadetblue;
+    border-style: solid;
+    border-color: darkslategray;
+    color: white;
+    text-align: center;
+    font-family: Aharoni;
+}
+#offersTitle
+{
+}
+#offersContacts
+{
+}

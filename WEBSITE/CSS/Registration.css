@@ -18,14 +18,14 @@ label
 #registrationContentLeftHalf
 {   
     display: inline-block;
-    margin-left: 7%;
-    width: 43%;
+    margin-left: 9%;
+    width: 45%;
     float: left;
 }
 #registrationContentRightHalf
 {
     display: inline-block;
-    width: 43%;
+    width: 45%;
 }
 #registrationForm
 {
