@@ -2,12 +2,13 @@
 <html>
     <head>
         <title>BigGym</title>
-        <!-- RESPONSIVE TAG -->
+        <!-- RESPONSIVE TAGS -->
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
         <!-- utf8 encoding-->
         <meta charset="utf-8" /> 
         <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
         <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
@@ -15,10 +16,12 @@
         <link rel="stylesheet" id="font-awesome-css" href="../css/font-awesome.css" type="text/css" media="screen" />
         <link rel="stylesheet" type="text/css" href="../CSS/jssocials.css" />
         <link rel="stylesheet" type="text/css" href="../CSS/jssocials-theme-classic.css" />
-         <link rel="stylesheet" type="text/css" href="../CSS/course_categories.css" />
-
+        <link rel="stylesheet" type="text/css" href="../CSS/course_categories.css" />
+        
          <!-- JAVASCRIPT -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+        
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script src="../JS/script.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script src="../JS/course_categories.js"></script>
@@ -26,34 +29,44 @@
         <script src="../JS/ie-emulation-modes-warning.js"></script>
     </head>
     <body>
-        
-     <nav class="navbar navbar-default navbar-static-top" id="topBar">
-      <div class="container" id="topBarContainer">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#Home" id="topBarHomeLink">BIGGYM</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="#about" id="topBarAboutLink">About Us</a></li>
-            <li><a href="../HTML/course_category.html" id="topBarCoursesLink">Courses</a></li>
-            <li><a href="#staff" id="topBarStaffLink">Staff</a></li>
-            <li><a href="#takeatour" id="topBarTourLink">Take a Tour</a></li>
-            <li><a href="Registration.html" id="topBarJoinLink">Join Us</a></li>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+    <div data-role="page" id="page1">
+    <div data-role="header">   
+         <nav  class="navbar navbar-default navbar-static-top" id="topBar">
+          <div class="container" id="topBarContainer">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#Home" id="topBarHomeLink">BIGGYM</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#about" id="topBarAboutLink">About Us</a></li>
+                <li><a href="../HTML/course_category.html" id="topBarCoursesLink">Courses</a></li>
+                <li><a href="#staff" id="topBarStaffLink">Staff</a></li>
+                <li><a href="#takeatour" id="topBarTourLink">Take a Tour</a></li>
+                <li><a href="Registration.html" id="topBarJoinLink">Join Us</a></li>
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+    </div>    
          
-         <div id="select_category_main_box">
+      <div class="ui-content" data-role="main">
+          
             
-         </div>
+         
+             <div id="select_category_main_box">
+
+             </div>
+              
         
-        <footer id="footer">
+        
+        </div> 
+        <div data-role="footer">
+        <footer  id="footer">
             <div class="footer_container">
                       <div class="footer_column">  
                          <h4 class="footer_content"> ABOUT US </h4> 
@@ -110,7 +123,7 @@
                       </div>
                 </div>
             </footer>
-            
+            </div>
            
             <a href="#" class="back-to-top-button" style="display: inline;">
                     <i class="fa fa-chevron-circle-up"></i>
@@ -121,6 +134,27 @@
                     2015 - Site built by Andrea Jegher, Riccardo Lomazzi, Emanuele Lattanzio. All rights reserved
                 </div>
             </div> -->
+     
+    </div>  
+    
+    <!-- second page with courses -->
+    
+    <div data-role="page" id="page2"> 
+        <div data-role="header">
+            <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all">Back</a>
+            <h2 id="course_name">
+            </h2>
+        </div>
+        
+        <div class="ui-content" data-role="main">
+        
+        
+        </div>
+        
+        <div data-role="footer">
+        
+        </div>
+    </div>
     
     </body>
 </html>

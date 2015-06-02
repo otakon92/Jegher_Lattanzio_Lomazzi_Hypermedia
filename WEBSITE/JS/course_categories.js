@@ -1,12 +1,18 @@
 $(document).ready(function() {
     
+   
+    //loading up #page1
     //start the ajax calls with getting a total number of categories
-    getNumberOfCategories();
-    //then add a click handler for every category
+    page1Loading();
+    
+    
+    
     
 });
 
-
+function page1Loading(){
+    getNumberOfCategories();
+}
 
 function getPHPSite(){
     return "http://biggymjll.altervista.org/getfromdb2.php";
@@ -96,7 +102,11 @@ function groupedCourses(totalNumber){
                //console.log(courses_per_category);
                
                 for(var j=0; j<courses_per_category.length;j++){
-                    $("#list_cat"+categories[i]['id_course_category']).append("<li class='list-group-item'> <a href='#'>" + courses_per_category[j]['course_name'] + "</a> </li>");
+                    //append course to list
+                    $("#list_cat"+categories[i]['id_course_category']).append("<li id='el"+categories[i]['id_course_category']+courses_per_category[j]['idcourse'] +"' class='list-group-item'> <a href='#page2' data-transition='slide'>" + courses_per_category[j]['course_name'] + "</a> </li>");
+                    //add a click handler that overwrite the courseRecord var
+                    $("#el"+categories[i]['id_course_category']+courses_per_category[j]['idcourse']).on("click", storeInRecordCallback(categories[i]['id_course_category'],courses_per_category[j]['idcourse'],courses_per_category[j]['description'],courses_per_category[j]['course_name']));
+                    
                 }
                
                
@@ -115,3 +125,30 @@ function toggleCallbackForPanel(categoryID){
                      $('#courses_cat'+categoryID).toggle('slow');
     }
 }
+
+function storeInRecordCallback(idcat, idcou, descr, course_name){
+    return function(){
+        courseRecord.categoryID=idcat;
+        courseRecord.idcourse=idcou;
+        courseRecord.description=descr;
+        courseRecord.coursename=course_name;
+        $('#course_name').html(course_name);
+        console.log(courseRecord.categoryID);
+        console.log(courseRecord.idcourse);
+        console.log(courseRecord.description);
+        console.log(courseRecord.coursename);
+       // page2Loading();
+    }
+}
+
+function page2Loading(){
+    //here the content is placed inside the div
+    //courseRecord();
+}
+
+ var courseRecord={
+        categoryID: '',
+        idcourse: '',
+        description: null,
+        coursename: ''
+    }
