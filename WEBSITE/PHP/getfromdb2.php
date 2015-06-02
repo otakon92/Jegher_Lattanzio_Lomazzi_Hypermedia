@@ -10,6 +10,7 @@ header('Access-Control-Allow-Origin: *');
 $mysqli=new mysqli("localhost","biggymjll","","my_biggymjll");
 
 
+
 if(mysqli_connect_errno()) //returns a number of the error if there is any, 0 if not
 {
     echo json_encode("Error to connect to DBMS".mysqli_connect_error());
@@ -18,7 +19,18 @@ if(mysqli_connect_errno()) //returns a number of the error if there is any, 0 if
 }
 else
 {
+    
     $query=$_POST["query"];
+    
+    switch($query){
+        case 'getnumberofcategories':
+            $query="SELECT COUNT(*) AS counted FROM course_categories;";
+        break;
+        case 'getcoursesjoincategories':
+            $query="SELECT course_categories.id_course_category, course_categories.course_category, course_categories.cat_bg_img_path, courses.idcourse, courses.course_name FROM course_categories JOIN courses ON courses.id_course_category=course_categories.id_course_category ORDER BY id_course_category;";
+        break;
+    }
+    
     $result=$mysqli->query($query); //do a query (->query) setted by $query, using the $mysqli variable, and store the data in $result 
     
     if($result->num_rows >0) //if there is at least one row...

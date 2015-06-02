@@ -1,41 +1,117 @@
-$(document).ready(function(){
-     //AJAX call creation
-    $.ajax({
-        url:"http://biggymjll.altervista.org/getfromdb.php",
-        method:"POST", //metodo per ricevere i dati  
-        data:{
-            query: "SELECT * FROM course_categories JOIN courses ON course_categories.id_course_category=courses.id_course_category;"
-        },
-        
-        //SUCCESS: creates a div for every single category
-        success: function(response){
-            var course_categories=JSON.parse(response); 
-            //for every category...
-            for(var i=course_categories.length-1;i>=0;i--)
-            {
-                //...get category's id, the category's name and the background image
-                var categoryID=course_categories[i]['id_course_category'];
-                var categoryName=course_categories[i]['course_category'];
-                var imageUrl=course_categories[i]['cat_bg_img_path'];
-                var box_category="<div class='category' id='category"+ categoryID + "'> <img src='" + imageUrl + "' class='category_image img-rounded'/> <div class='overlay'> <h2 class='category_name'> " + categoryName + "</h2> </div> </div>";
-                $("#select_category_main_box").after(box_category);
-                
-            }  
-        },
-        //ERROR: writes the error in the console
-        error: function(request, error) {
-            console.log(error);
-        }
-
-    });
+$(document).ready(function() {
     
-    
-    
-    //Creating submenus of courses for the specific category
+    //start the ajax calls with getting a total number of categories
+    getNumberOfCategories();
+    //then add a click handler for every category
     
 });
 
 
-function getCategory(){
-    return "http://biggymjll.altervista.org/getfromdb.php";
+
+function getPHPSite(){
+    return "http://biggymjll.altervista.org/getfromdb2.php";
+}
+
+function getNumberOfCategories(){
+    var total_number;
+     $.ajax({
+        url:getPHPSite(),
+        method:"POST", //metodo per ricevere i dati  
+        data:{/* query: "SELECT COUNT(*) AS counted FROM course_categories;"*/
+            query:"getnumberofcategories"
+        },
+        success: function(response){
+           total_number=(JSON.parse(response));
+           //console.log(total_number);
+        },
+        error: function(request, error) {
+            console.log(error);
+        }
+    }).done(function(){
+     
+         groupedCourses(total_number[0]['counted']);
+         
+     });  
+}
+   
+function groupedCourses(totalNumber){
+    $.ajax({
+        url:getPHPSite(),
+        method:"POST", //metodo per ricevere i dati  
+        data:{/* query: "SELECT course_categories.id_course_category, course_categories.course_category, course_categories.cat_bg_img_path, courses.idcourse, courses.course_name FROM course_categories JOIN courses ON courses.id_course_category=course_categories.id_course_category ORDER BY id_course_category;"*/
+            query: "getcoursesjoincategories"
+        },
+        success: function(response){
+           var courses_join_categories=(JSON.parse(response));
+           //console.log(courses);
+            
+            //for every category, create some divs
+           
+                var categories=new Array();
+                var toCheck=courses_join_categories[0]['id_course_category'];
+                //console.log(toCheck);
+                for(var i=0; i<courses_join_categories.length;i++){
+                    if(toCheck==courses_join_categories[i]['id_course_category']){
+                        categories.push(courses_join_categories[i]);
+                        //console.log(courses_join_categories[i]);
+                        toCheck=toCheck-1;
+                        //console.log(toCheck);
+                    }
+                }
+            
+            
+           // console.log(categories);
+            
+            for(var j=0;j<categories.length;j++){
+            
+             //...get category's id, the category's name and the background image
+                var categoryID=categories[j]['id_course_category'];
+                var categoryName=categories[j]['course_category'];
+                var imageUrl=categories[j]['cat_bg_img_path'];
+                //create a container for the image
+                var box_category="<div class='category' id='category"+ categoryID + "'> <img src='" + imageUrl + "' class='category_image img-rounded'/> <div class='overlay'> <h2 class='category_name'> " + categoryName + "</h2> </div> </div>";
+                $("#select_category_main_box").after(box_category);
+                
+                
+                //add a panel
+                var box_courses="<div class='courses panel panel-default' id='courses_cat"+ categoryID+"'> </div>";
+                    $('#category'+categoryID).append(box_courses);
+                //then add a list inside that panel
+                    $('#courses_cat'+ categoryID).append("<ul class='list-group' id='list_cat"+categoryID+"'>  </ul>");   
+                
+                //add a click handler for the panel
+                 $('#category'+categoryID).on("click", toggleCallbackForPanel(categoryID));
+                //and then hide it at load
+                $('#courses_cat'+categoryID).css("display", "none");
+            }
+            
+            //for every course...
+            //searching for sub groups of courses inside that particular category
+           for(var i=0;i<categories.length;i++){
+               
+               var courses_per_category=$.grep(courses_join_categories, function(v,index){
+                    return v['id_course_category']==categories[i]['id_course_category'];
+               });
+               
+               //console.log(courses_per_category);
+               
+                for(var j=0; j<courses_per_category.length;j++){
+                    $("#list_cat"+categories[i]['id_course_category']).append("<li class='list-group-item'> <a href='#'>" + courses_per_category[j]['course_name'] + "</a> </li>");
+                }
+               
+               
+           }
+            
+        },
+        error: function(request, error) {
+            console.log(error);
+        }
+    }).done(function(){});  
+}
+
+function toggleCallbackForPanel(categoryID){
+    return function() {
+                     console.log('#category'+categoryID);
+                     $('#courses_cat'+categoryID).toggle('slow');
+    }
 }
