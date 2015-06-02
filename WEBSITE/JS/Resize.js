@@ -47,4 +47,10 @@ function dynamicMarginSmall(width,elem)
     elem.css('margin', function (index, curValue) {
     return "0%";
     });
+    elem.css('padding', function (index, curValue) {
+    return "0%";
+    });
+    elem.css('margin-left', function (index, curValue) {
+    return "1%";
+    });
 }
