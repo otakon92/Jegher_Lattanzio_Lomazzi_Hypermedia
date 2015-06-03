@@ -1,0 +1,46 @@
+#instructorPersonalImage
+{
+    width: = 45%;
+    display: inline-block;
+    float: left;
+}
+#instructorPersonalTraits
+{
+    width: = 45%;
+    display: inline-block;
+    margin-left: 2%;
+}
+.traitMenuItem
+{
+    display: inline-block;
+    width: 32%;
+    background-color: darkcyan;
+    border-style: solid;
+    border-color: darkblue;
+    color: white;
+    font-family: Aharoni;
+    cursor: grab;
+    text-align: center;
+    margin-left: auto;
+}
+.traitContentHolder
+{
+    background-color: darkcyan;
+    color: white;
+    font-family: Aharoni;
+    text-align: center;
+}
+.traitContenSelector
+{
+    background-color: darkblue;
+    color: white;
+    font-family: Aharoni;
+    text-align: center;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover
+{
+    background-color: darkcyan;
+    color: white;
+    font-family: Aharoni;
+    text-align: center;
+}
