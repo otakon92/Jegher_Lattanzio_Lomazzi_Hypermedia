@@ -1,6 +1,6 @@
 $(document).ready(function() {
     
-   
+    
     //loading up #page1
     //start the ajax calls with getting a total number of categories
     page1Loading();
@@ -22,7 +22,9 @@ function getNumberOfCategories(){
     var total_number;
      $.ajax({
         url:getPHPSite(),
-        method:"POST", //metodo per ricevere i dati  
+        cache: false,
+        method:"POST", //metodo per ricevere i dati 
+        crossDomain: setBrowserCrossDomain(),
         data:{/* query: "SELECT COUNT(*) AS counted FROM course_categories;"*/
             query:"getnumberofcategories"
         },
@@ -44,10 +46,13 @@ function groupedCourses(totalNumber){
     $.ajax({
         url:getPHPSite(),
         method:"POST", //metodo per ricevere i dati  
+        cache: false,
+        crossDomain: setBrowserCrossDomain(),
         data:{/* query: "SELECT course_categories.id_course_category, course_categories.course_category, course_categories.cat_bg_img_path, courses.idcourse, courses.course_name FROM course_categories JOIN courses ON courses.id_course_category=course_categories.id_course_category ORDER BY id_course_category;"*/
             query: "getcoursesjoincategories"
         },
         success: function(response){
+            console.log(response);
            var courses_join_categories=(JSON.parse(response));
            //console.log(courses);
             
@@ -55,7 +60,7 @@ function groupedCourses(totalNumber){
            
                 var categories=new Array();
                 var toCheck=courses_join_categories[0]['id_course_category'];
-                //console.log(toCheck);
+                console.log(courses_join_categories[0]);
                 for(var i=0; i<courses_join_categories.length;i++){
                     if(toCheck==courses_join_categories[i]['id_course_category']){
                         categories.push(courses_join_categories[i]);
@@ -99,13 +104,17 @@ function groupedCourses(totalNumber){
                     return v['id_course_category']==categories[i]['id_course_category'];
                });
                
+               categoryID=categories[i]['id_course_category'];
+               
                //console.log(courses_per_category);
                
                 for(var j=0; j<courses_per_category.length;j++){
                     //append course to list
-                    $("#list_cat"+categories[i]['id_course_category']).append("<li id='el"+categories[i]['id_course_category']+courses_per_category[j]['idcourse'] +"' class='list-group-item'> <a href='#page2' data-transition='slide'>" + courses_per_category[j]['course_name'] + "</a> </li>");
-                    //add a click handler that overwrite the courseRecord var
-                    $("#el"+categories[i]['id_course_category']+courses_per_category[j]['idcourse']).on("click", storeInRecordCallback(categories[i]['id_course_category'],courses_per_category[j]['idcourse'],courses_per_category[j]['description'],courses_per_category[j]['course_name']));
+                    var idcourse=courses_per_category[j]['idcourse'];
+                    var coursename=courses_per_category[j]['course_name'];
+                    $("#list_cat"+categoryID).append("<li id='el"+categoryID+idcourse +"' class='list-group-item'> <a href='#' >" + coursename + "</a> </li>");
+                    //add a click handler that change page storing data in a url
+                    $("#el"+categoryID+idcourse).on("click", changePagePassingData(categoryID,idcourse));
                     
                 }
                
@@ -124,20 +133,13 @@ function toggleCallbackForPanel(categoryID){
                      console.log('#category'+categoryID);
                      $('#courses_cat'+categoryID).toggle('slow');
     }
+
 }
 
-function storeInRecordCallback(idcat, idcou, descr, course_name){
+function changePagePassingData(categoryID, idcourse){
     return function(){
-        courseRecord.categoryID=idcat;
-        courseRecord.idcourse=idcou;
-        courseRecord.description=descr;
-        courseRecord.coursename=course_name;
-        $('#course_name').html(course_name);
-        console.log(courseRecord.categoryID);
-        console.log(courseRecord.idcourse);
-        console.log(courseRecord.description);
-        console.log(courseRecord.coursename);
-       // page2Loading();
+        var url = "single_course_page.html?idcat=" + encodeURIComponent(categoryID) + "&idcourse=" + encodeURIComponent(idcourse);
+            window.location.href = url;
     }
 }
 
@@ -146,9 +148,11 @@ function page2Loading(){
     //courseRecord();
 }
 
- var courseRecord={
-        categoryID: '',
-        idcourse: '',
-        description: null,
-        coursename: ''
-    }
+function setBrowserCrossDomain(){
+    var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+    if(!!window.chrome && !isOpera)              // Chrome 1+
+        return true;
+    else
+        return false;
+}
+
