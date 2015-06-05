@@ -13,20 +13,20 @@ $(document).ready(function() {
 function page1Loading(){
     getNumberOfCategories();
 }
-
-function getPHPSite(){
-    return "http://biggymjll.altervista.org/getfromdb2.php";
-}
+/*
+function getPHPFile(){
+    return "http://biggymjll.altervista.org/getfromdb_courses.php";
+}*/
 
 function getNumberOfCategories(){
     var total_number;
      $.ajax({
-        url:getPHPSite(),
+        url:getPHPFile('courses'),
         cache: false,
         method:"POST", //metodo per ricevere i dati 
         crossDomain: setBrowserCrossDomain(),
         data:{/* query: "SELECT COUNT(*) AS counted FROM course_categories;"*/
-            query:"getnumberofcategories"
+            query:"getnumberofcategories="
         },
         success: function(response){
            total_number=(JSON.parse(response));
@@ -44,12 +44,12 @@ function getNumberOfCategories(){
    
 function groupedCourses(totalNumber){
     $.ajax({
-        url:getPHPSite(),
+        url:getPHPFile('courses'),
         method:"POST", //metodo per ricevere i dati  
         cache: false,
         crossDomain: setBrowserCrossDomain(),
         data:{/* query: "SELECT course_categories.id_course_category, course_categories.course_category, course_categories.cat_bg_img_path, courses.idcourse, courses.course_name FROM course_categories JOIN courses ON courses.id_course_category=course_categories.id_course_category ORDER BY id_course_category;"*/
-            query: "getcoursesjoincategories"
+            query: "getcoursesjoincategories="
         },
         success: function(response){
             console.log(response);
@@ -138,7 +138,7 @@ function toggleCallbackForPanel(categoryID){
 
 function changePagePassingData(categoryID, idcourse){
     return function(){
-        var url = "single_course_page.html?idcat=" + encodeURIComponent(categoryID) + "&idcourse=" + encodeURIComponent(idcourse);
+        var url = "single_course_page.html?idcat=" + categoryID + "&idcourse=" + idcourse;
             window.location.href = url;
     }
 }
@@ -148,11 +148,5 @@ function page2Loading(){
     //courseRecord();
 }
 
-function setBrowserCrossDomain(){
-    var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
-    if(!!window.chrome && !isOpera)              // Chrome 1+
-        return true;
-    else
-        return false;
-}
+
 

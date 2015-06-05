@@ -27,4 +27,20 @@ $(document).ready(function () {
     
 });
 
+function getPHPFile(phpSite){
+    var str;
+    switch(phpSite){
+        case 'courses':  
+            str="http://biggymjll.altervista.org/getfromdb_courses.php";
+        break;
+    }
+    return str;
+}
 
+function setBrowserCrossDomain(){
+    var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+    if(!!window.chrome && !isOpera)              // Chrome 1+
+        return true;
+    else
+        return false;
+}

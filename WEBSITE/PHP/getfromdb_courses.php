@@ -22,16 +22,21 @@ else
     
     $query=$_POST["query"];
     
-    switch($query){
+    $substrings=explode('=', $query);
+    
+    switch($substrings[0]){
         case 'getnumberofcategories':
-            $query="SELECT COUNT(*) AS counted FROM course_categories;";
+            $actualQuery="SELECT COUNT(*) AS counted FROM course_categories;";
         break;
         case 'getcoursesjoincategories':
-            $query="SELECT course_categories.id_course_category, course_categories.course_category, course_categories.cat_bg_img_path, courses.idcourse, courses.course_name FROM course_categories JOIN courses ON courses.id_course_category=course_categories.id_course_category ORDER BY id_course_category;";
+            $actualQuery="SELECT course_categories.id_course_category, course_categories.course_category, course_categories.cat_bg_img_path, courses.idcourse, courses.course_name FROM course_categories JOIN courses ON courses.id_course_category=course_categories.id_course_category ORDER BY id_course_category;";
         break;
+        case 'getcourse':
+            $actualQuery="SELECT * FROM courses WHERE id_course_category=".$substrings[1]." AND idcourse=".$substrings[2].";";
+            break;
     }
     
-    $result=$mysqli->query($query); //do a query (->query) setted by $query, using the $mysqli variable, and store the data in $result 
+    $result=$mysqli->query($actualQuery); //do a query (->query) setted by $query, using the $mysqli variable, and store the data in $result 
     
     if($result->num_rows >0) //if there is at least one row...
     {
