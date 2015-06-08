@@ -26,13 +26,16 @@ else
     
     switch($substrings[0]){
         case 'getNumberofInstructors':
-            $actualQuery="SELECT COUNT(*) AS counted FROM instructors;";
+//            $actualQuery="SELECT COUNT(*) AS counted FROM instructors;";
         break;
-        case 'getcoursesjoincategories':
-            $actualQuery="SELECT course_categories.id_course_category, course_categories.course_category, course_categories.cat_bg_img_path, courses.idcourse, courses.course_name FROM course_categories JOIN courses ON courses.id_course_category=course_categories.id_course_category ORDER BY id_course_category;";
+        case 'getInstrcutorOfTheMonth':
+            $actualQuery="SELECT instructors.FirstName, instructors.Surname, instructors.Description, instructors.SmallImage, awards.IconUrl FROM instructors JOIN awards ON instructors.PersonID=awards.PersonID WHERE awards.award=".InstructorOfTheMonth.";";
         break;
-        case 'getcourse':
-            $actualQuery="SELECT * FROM courses WHERE id_course_category=".$substrings[1]." AND idcourse=".$substrings[2].";";
+        case 'getAllInstructors':
+//            $actualQuery="SELECT * FROM instructors;".$substrings[1]." AND idcourse=".$substrings[2].";";
+            break;
+        case 'getSingleInstructor':
+//            $actualQuery="SELECT * FROM courses WHERE instructors.PersonID=".$substrings[1]." AND idcourse=".$substrings[2].";";
             break;
     }
     
