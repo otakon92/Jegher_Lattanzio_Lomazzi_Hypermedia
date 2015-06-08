@@ -9,9 +9,11 @@ label
 }
 #registrationContent
 {
+
     width: 79%;
-    margin: auto;
+ /*   margin: auto;
     padding-left: 5%;
+*/
 }
 #registrationContentLeftHalf
 {   
@@ -27,12 +29,15 @@ label
 }
 #registrationForm
 {
-    background-color: cadetblue;
     margin-bottom: 10%;
     border: 10%;
     padding: 3%;
+    background-color: #1E90FF;
     border-style: solid;
-    border-color: darkslategray;
+    border-color: #0F487F;
+    color: white;
+    text-align: center;
+    font-family: Aharoni;
 }
 #registerFormHeading
 {

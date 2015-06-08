@@ -25,21 +25,21 @@
 }
 .traitContentHolder
 {
-    background-color: darkcyan;
+    background-color: #0F487F;
     color: white;
     font-family: Aharoni;
     text-align: center;
 }
 .traitContenSelector
 {
-    background-color: darkblue;
+    background-color: #638BB2;
     color: white;
     font-family: Aharoni;
     text-align: center;
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover
 {
-    background-color: darkcyan;
+    background-color: #0F487F;
     color: white;
     font-family: Aharoni;
     text-align: center;
