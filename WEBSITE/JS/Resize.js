@@ -31,6 +31,10 @@ function dynamicAlignSmall(width,elem)
 }
 function dynamicReduceMargin(width,elem)
 {
+    elem.css('margin', function (index, curValue) {
+    return "1%";
+    });
+    
     if(width>=767)
         dynamicMarginBig(width,elem);
     else

@@ -29,10 +29,10 @@ else
 //            $actualQuery="SELECT COUNT(*) AS counted FROM instructors;";
         break;
         case 'getInstructorOfTheMonth':
-            $actualQuery="SELECT instructors.firstname, instructors.surname, instructors.description, instructors.smallImage, awards.iconurl FROM instructors ,instructors_awards ,awards WHERE instructors.personid=instructors_awards.personid AND awards.award =".InstructorOfTheMonth." AND instructors_awards.award = awards.award ";
+            $actualQuery="SELECT instructors.firstname, instructors.surname, instructors.description, instructors.smallimage, awards.iconurl FROM instructors ,instructors_awards ,awards WHERE instructors.personid=instructors_awards.personid AND awards.award = 'InstructorOfTheMonth' AND instructors_awards.award = awards.award ";
         break;
         case 'getAllInstructors':
-//            $actualQuery="SELECT * FROM instructors;".$substrings[1]." AND idcourse=".$substrings[2].";";
+          $actualQuery="SELECT instructors.firstname, instructors.surname, instructors.description, instructors.smallimage FROM instructors";
             break;
         case 'getSingleInstructor':
 //            $actualQuery="SELECT * FROM courses WHERE instructors.PersonID=".$substrings[1]." AND idcourse=".$substrings[2].";";
