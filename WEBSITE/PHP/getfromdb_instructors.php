@@ -28,8 +28,8 @@ else
         case 'getNumberofInstructors':
 //            $actualQuery="SELECT COUNT(*) AS counted FROM instructors;";
         break;
-        case 'getInstrcutorOfTheMonth':
-            $actualQuery="SELECT instructors.FirstName, instructors.Surname, instructors.Description, instructors.SmallImage, awards.IconUrl FROM instructors JOIN awards ON instructors.PersonID=awards.PersonID WHERE awards.award=".InstructorOfTheMonth.";";
+        case 'getInstructorOfTheMonth':
+            $actualQuery="SELECT instructors.firstname, instructors.surname, instructors.description, instructors.smallImage, awards.iconurl FROM instructors ,instructors_awards ,awards WHERE instructors.personid=instructors_awards.personid AND awards.award =".InstructorOfTheMonth." AND instructors_awards.award = awards.award ";
         break;
         case 'getAllInstructors':
 //            $actualQuery="SELECT * FROM instructors;".$substrings[1]." AND idcourse=".$substrings[2].";";
