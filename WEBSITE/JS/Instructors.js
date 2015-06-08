@@ -2,6 +2,7 @@ $(document).ready(ready);
 
 function ready()
 {
+    getInstructorOfTheMonth();
 }
 
 function getNumberOfInstructors(){
@@ -52,4 +53,6 @@ function getInstructorOfTheMonth()
 
 function displayInstructorOfTheMonth(instructorOfTheMonth)
 {
+    var content="<div><img src=".instructorOfTheMonth[0][3]."></div><div><p>".instructorOfTheMonth[0][0]."</p><p>".instructorOfTheMonth[0][1]."</p><p>".instructorOfTheMonth[0][2]."</p><img res=".instructorOfTheMonth[0][4]."></div>";
+    $("#instructorOfTheMonth").append(content);
 }
