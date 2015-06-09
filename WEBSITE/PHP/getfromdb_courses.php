@@ -34,6 +34,9 @@ else
         case 'getcourse':
             $actualQuery="SELECT * FROM courses WHERE id_course_category=".$substrings[1]." AND idcourse=".$substrings[2].";";
             break;
+        case 'getinstructors':
+            $actualQuery="SELECT * FROM instructors_courses JOIN instructors ON instructors_courses.PersonID=instructors.personid WHERE idcourse=".$substrings[2]." AND id_course_category=".$substrings[1].";";
+            break;
     }
     
     $result=$mysqli->query($actualQuery); //do a query (->query) setted by $query, using the $mysqli variable, and store the data in $result 

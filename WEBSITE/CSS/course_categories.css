@@ -1,3 +1,15 @@
+@media (max-width: 490px) {
+  #searchbar {
+    float:none !important;
+  }
+    
+    #select_category_main_box h2{
+        float:none;
+        text-align: center;
+    }
+} 
+
+
 body{
     background-color:#F0F0F0;
 }
@@ -28,3 +40,63 @@ body{
   width:100%;
 }
 
+#select_category_main_box{
+    font-family: Aharoni;
+    color:white;
+    display: inline-block;
+    background-color: dodgerblue;
+    width: 100%; 
+}
+
+#select_category_main_box h2{
+    
+    float: left;
+    padding-left:3%;
+    vertical-align: middle;
+}
+
+#searchbar{
+    color: black;
+    float:right;
+    padding-right:3%;
+    vertical-align: middle !important;
+}
+
+.typeahead{
+    margin-top:5%;
+    vertical-align: middle !important;
+}
+
+.input-group{
+    float: right;
+    padding-right: 3%;
+}
+
+.twitter-typeahead .tt-hint
+{
+    display: block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border: 1px solid transparent;
+    border-radius:4px;
+}
+
+.twitter-typeahead .hint-small
+{
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    line-height: 1.5;
+}
+
+.twitter-typeahead .hint-large
+{
+    height: 45px;
+    padding: 10px 16px;
+    font-size: 18px;
+    border-radius: 6px;
+    line-height: 1.33;
+}
