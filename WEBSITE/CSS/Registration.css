@@ -1,110 +1,52 @@
-body
+*
 {
-    background-color: dimgray;
-}
-label
-{
-    color: white;
     font-family: Aharoni;
-}
-#registrationContent
-{
-
-    width: 79%;
- /*   margin: auto;
-    padding-left: 5%;
-*/
-}
-#registrationContentLeftHalf
-{   
-    display: inline-block;
-    margin-left: 9%;
-    width: 45%;
-    float: left;
-}
-#registrationContentRightHalf
-{
-    display: inline-block;
-    width: 45%;
-}
-#registrationForm
-{
-    margin-bottom: 10%;
-    border: 10%;
-    padding: 3%;
-    background-color: #1E90FF;
-    border-style: solid;
-    border-color: #0F487F;
-    color: white;
-    text-align: center;
-    font-family: Aharoni;
-}
-#registerFormHeading
-{
-    color: white;
-    text-align: center;
-    font-family: Aharoni;
-}
-#visitOffers
-{
-    background-color: #4388CC;
-    margin-bottom: 20%;
-    padding: 3%;
-    border: 10%;
-    border-style: solid;
-    border-color: #1B3280;
-}
-#loginForm
-{
-    background-color: #4388CC;
-    margin-bottom: 10%;
-    margin-left: 10%;
-    padding: 3%;
-    border: 10%;
-    border-style: solid;
-    border-color: #1B3280;
-}
-#loginFormHeading
-{
-    color: white;
-    text-align: center;
-    font-family: Aharoni;
-}
-#registrationImage
-{
-    height: 68.7%;
-    margin-bottom: 20%;
-    margin-left: 10%;
-    border-style: solid;
-    border-color: black;
-    background-image: url(../RES/IMAGES/registrationPageImage.jpg);
-    background-size: 100% 100%;
 }
 .customFormInput
 {
-   border-radius: 0px;
-   margin-bottom: 1%;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
-.customSubmitFormButton
+#registrationFormContainer
 {
-    width: auto;
-    margin-left: 20%;
-    border-radius: 0px;
+    width: 95%;
+    margin: auto;
+    padding: 0;
+    background-image: url(../RES/IMAGES/registrationPageImage.jpg);
+    background-size: cover;
+}
+#termsAndConditions
+{
+    background-color: lightgray;
     color: black;
-    background-image: none; 
-    background-color: white;
 }
-.offersText
+.noPadding
 {
+    width: 45%;
+    margin: auto;
+    padding: 0;
+}
+/*
+#visitOffers
+{
+    background-color: #29B214;
+    border-style: solid;
+    border-color: #145214;
     color: white;
-    text-align: center;
-    font-family: Aharoni;
-    line-height: 110%;
-    
 }
 #offersDivjoinUsLink
 {
-    text-decoration: underline;
-    text-decoration-color: white;
     color: white;
+}*/
+
+/*
+#loginForm
+{
+    background-color: #4388CC;
+    border-style: solid;
+    border-color: #1B3280;
+    color: white;
+    padding: 2%;
 }
+*/

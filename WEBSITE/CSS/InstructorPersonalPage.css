@@ -1,34 +1,31 @@
+body
+{
+    min-width: 353px;
+}
+#instructorPersonalPageContent
+{
+   padding: 2%; 
+   padding-left: 5%;
+}
 #instructorPersonalImage
 {
-    width: = 45%;
     display: inline-block;
     float: left;
 }
 #instructorPersonalTraits
 {
-    width: = 45%;
     display: inline-block;
     margin-left: 2%;
 }
-.traitMenuItem
-{
-    display: inline-block;
-    width: 32%;
-    background-color: darkcyan;
-    border-style: solid;
-    border-color: darkblue;
-    color: white;
-    font-family: Aharoni;
-    cursor: grab;
-    text-align: center;
-    margin-left: auto;
-}
 .traitContentHolder
 {
+    display: inline-block;
     background-color: #0F487F;
     color: white;
     font-family: Aharoni;
-    text-align: center;
+    text-align: justify;
+    padding: 5%;
+    padding-left: 15%;
 }
 .traitContenSelector
 {
@@ -43,4 +40,17 @@
     color: white;
     font-family: Aharoni;
     text-align: center;
+}
+.nav
+{
+    margin-left: 5%;
+}
+.links
+{
+    display: inline-block;
+}
+.instructorName
+{
+    color: black;
+    font-family: Aharoni;
 }

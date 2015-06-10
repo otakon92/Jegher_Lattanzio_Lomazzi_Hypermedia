@@ -26,16 +26,19 @@ else
     
     switch($substrings[0]){
         case 'getNumberofInstructors':
-//            $actualQuery="SELECT COUNT(*) AS counted FROM instructors;";
+           $actualQuery="SELECT COUNT(*) AS counted FROM instructors;";
         break;
         case 'getInstructorOfTheMonth':
-            $actualQuery="SELECT instructors.firstname, instructors.surname, instructors.description, instructors.smallimage, awards.iconurl FROM instructors ,instructors_awards ,awards WHERE instructors.personid=instructors_awards.personid AND awards.award = 'InstructorOfTheMonth' AND instructors_awards.award = awards.award ";
+            $actualQuery="SELECT instructors.personid, instructors.firstname, instructors.surname, instructors.description, instructors.smallimage, awards.iconurl FROM instructors ,instructors_awards ,awards WHERE instructors.personid=instructors_awards.personid AND awards.award = 'InstructorOfTheMonth' AND instructors_awards.award = awards.award ";
         break;
         case 'getAllInstructors':
-          $actualQuery="SELECT instructors.firstname, instructors.surname, instructors.description, instructors.smallimage FROM instructors";
+          $actualQuery="SELECT instructors.personid, instructors.firstname, instructors.surname, instructors.description, instructors.smallimage FROM instructors";
             break;
         case 'getSingleInstructor':
-//            $actualQuery="SELECT * FROM courses WHERE instructors.PersonID=".$substrings[1]." AND idcourse=".$substrings[2].";";
+            $actualQuery="SELECT * FROM instructors WHERE instructors.personid=".$substrings[1].";";
+            break;
+        case 'getAllAwardsOfInstructor':
+            $actualQuery="SELECT awards.iconurl, awards.comment, instructors_awards.dayawarded FROM instructors, awards, instructors_awards WHERE instructors.personid='".$substrings[1]."' AND instructors.personid = instructors_awards.personid AND instructors_awards.award = awards.award;";
             break;
     }
     

@@ -13,14 +13,13 @@
         <link rel="stylesheet" type="text/css" href="../CSS/jssocials.css" />
         <link rel="stylesheet" type="text/css" href="../CSS/jssocials-theme-classic.css" />
         <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
-    <link rel="stylesheet" type="text/css" href="../CSS/Resize.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/jumbotron-narrow.css" />
     <!-- JAVASCRIPT -->
         <script src="../JS/jquery-1.11.2.js"></script>
     <script src="../JS/bootstrap.min.js"></script>
         <script src="../JS/jssocials.js"></script>
     <script src="../JS/ie-emulation-modes-warning.js"></script>
     <script src="../JS/Registration.js"></script>
-    <script src="../JS/Resize.js"></script>
         <script src="../JS/script.js"></script>
 </head>
 <body>
@@ -46,51 +45,10 @@
       </div>
     </nav>
     <!--Page content--> 
-    <div id="registrationContent" class="resizableContainer">
-        <br/>
-        <div id="registrationContentLeftHalf" class="resizable">
-            <div id="registrationForm" ><form class="form-signin">
-        <div id="registerFormHeading" >
-        <h3>Are you new?</h3>
-        <h4>Complete your registration in a few steps!</h4>
-        </div>
-                </br>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control customFormInput" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control customFormInput" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="terms-conditions"> Agree to our terms and conditions
-            </label>
-              </br>
-          <label>
-            <input type="checkbox" value="remember-me"> Subscribe to our newsletter
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block customSubmitFormButton" type="submit">Sign in</button>
-      </form>
-            </div>
-            <div id="visitOffers">
-                <h3 class="offersText">
-                    </br>Log in or register
-                to be able to sign fo our great offers!
-                </br>
-                Are you a student
-                </br>
-                or a full time worker?
-                </br>
-                We have plenty of time flexible offers</br>
-                and coupons for you!
-                </h3>
-                <a id="offersDivjoinUsLink" href="FEEs.html">
-                    <h2 class="offersText">
-                    Take a look at our prices
-                    </h2>
-                </a>
-            </div>
-        </div>
-        <div id="registrationContentRightHalf" class="resizable">
+        <div class="jumbotron">
+            
+      <div class="row marketing">
+        <div class="col-lg-6">  
             <div id="loginForm">
                 <form class="form-signin">
         <h3 id="registerFormHeading" >Please sign in</h3>
@@ -103,12 +61,81 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block customSubmitFormButton" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block customFormInput" type="submit">Sign in</button>
       </form>
+            </div>  
+        </div>  
+        <div class="col-lg-6">
+            <div id="visitOffers">
+                <h3 class="offersText">
+                    Visit Our Offerts!
+                <a id="offersDivjoinUsLink" href="FEEs.html">
+                    <h2 class="offersText">
+                    Take a look at our prices
+                    </h2>
+                </a>
             </div>
-            <div id="registrationImage"></div>
         </div>
-    </div>
+      </div>
+        <div class="container" id="registrationFormContainer">
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+		<form role="form">
+			<h2>Please Sign Up It's free and always will be.</h2>
+			<hr class="colorgraph">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<input type="text" name="display_name" id="display_name" class="form-control input-lg" placeholder="Display Name" tabindex="3">
+			</div>
+			<div class="form-group">
+				<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4 col-sm-3 col-md-3 noPadding">
+					<span class="button-checkbox">
+						<button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
+                        <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
+					</span>
+				</div>
+				<div class="col-xs-8 col-sm-9 col-md-9  noPadding" id="termsAndConditions">
+					 By clicking <strong class="label label-primary">Register</strong>, you agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
+				</div>
+			</div>
+			
+			<hr class="colorgraph">
+			<div class="row">
+				<div class="col-xs-12 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+				<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Sign In</a></div>
+			</div>
+		</form>
+	</div>
+</div>
+</div>
+      </div>
     <!--footer-->
        <footer id="footer">
             <div class="footer_container">

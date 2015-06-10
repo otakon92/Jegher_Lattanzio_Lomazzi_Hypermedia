@@ -23,7 +23,7 @@ function dynamicAlignElement(width,elem)
 }
 function dynamicAlignBig(width,elem)
 {
-    elem.width("45%");
+    elem.width("65%");
 }
 function dynamicAlignSmall(width,elem)
 {

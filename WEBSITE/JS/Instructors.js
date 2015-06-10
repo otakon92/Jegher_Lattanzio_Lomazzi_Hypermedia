@@ -1,10 +1,7 @@
 $(document).ready(ready);
 
-$(window).resize(dynamicAlign);
-
 function ready()
 {
-    dynamicAlign();
     getInstructorOfTheMonth();
     getInstructors();
 }
@@ -57,7 +54,7 @@ function getInstructorOfTheMonth()
 
 function displayInstructorOfTheMonth(instructorOfTheMonth)
 {
-    var content="<div class='instructorContainer'><div><img src="+instructorOfTheMonth[0]['smallimage']+" class='instructorImg'></div><div class='instructorDesc'><p>"+instructorOfTheMonth[0]['firstname']+"</p><p>"+instructorOfTheMonth[0]['surname']+"</p><p>"+instructorOfTheMonth[0]['description']+"</p><p><a href='#'>See My Page!</a></p></br><img id='awardIcon' src="+instructorOfTheMonth[0]['iconurl']+"></div></div>";
+    var content="<li class='instructorContainer list-group-item'><div><img src="+instructorOfTheMonth[0]['smallimage']+" class='instructorImg'></div><div class='instructorDesc'><p>"+instructorOfTheMonth[0]['firstname']+"</p><p>"+instructorOfTheMonth[0]['surname']+"</p><p>"+instructorOfTheMonth[0]['description']+"</p><p><a href='InstructorPersonalPage.html?code="+instructorOfTheMonth[0]['personid']+"'>See My Page!</a></p></br></div></li>";
     $("#instructorOfTheMonth").append(content);
 }
 function getInstructors()
@@ -87,58 +84,8 @@ function displayInstructors(instructors)
 {
     for(var i = 0 ; i < instructors.length ; i++)
     {
-    var content="<div class='instructorContainer'><div><img src="+instructors[i]['smallimage']+" class='instructorImg'></div><div class='instructorDesc'><p>"+instructors[i]['firstname']+"</p><p>"+instructors[i]['surname']+"</p><p>"+instructors[i]['description']+"</p><p><a href='#'>See My Page!</a></p></div></div></br></br>";
+    var content="<li class='instructorContainer list-group-item'><div><img src="+instructors[i]['smallimage']+" class='instructorImg'></div><div class='instructorDesc'><p>"+instructors[i]['firstname']+"</p><p>"+instructors[i]['surname']+"</p><p>"+instructors[i]['description']+"</p><p><a href='InstructorPersonalPage.html?code="+instructors[i]['personid']+"'>See My Page!</a></p></div></li></br></br>";
     $("#instructrsList").append(content);
     
     }
-}
-
-function dynamicAlign()
-{
-    var width = window.innerWidth;
-    
-    $('.resizable').each(function() {
-        dynamicAlignElement(width,$( this ))
-    });
-    
-    $('.resizableTitle').each(function() {
-        dynamicReduceMargin(width,$( this ))
-    });
-}
-function dynamicAlignElement(width,elem)
-{
-    if(width>=767)
-        dynamicAlignBig(width,elem);
-    else
-        dynamicAlignSmall(width,elem);                           
-}
-function dynamicAlignBig(width,elem)
-{
-    elem.width("45%");
-}
-function dynamicAlignSmall(width,elem)
-{
-    elem.width("90%");
-}
-function dynamicReduceMargin(width,elem)
-{
-    if(width>=767)
-        dynamicMarginBig(width,elem);
-    else
-        dynamicMarginSmall(width,elem);
-}
-function dynamicMarginBig(width,elem)
-{
-    elem.css('margin-left', function (index, curValue) {
-    return "40%";
-    });
-}
-function dynamicMarginSmall(width,elem)
-{
-    elem.css('margin-left', function (index, curValue) {
-    return "10%";
-    });
-    elem.css('padding', function (index, curValue) {
-    return "0%";
-    });
 }
