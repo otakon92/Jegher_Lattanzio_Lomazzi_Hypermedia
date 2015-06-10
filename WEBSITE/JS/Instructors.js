@@ -1,7 +1,10 @@
 $(document).ready(ready);
 
+$(window).resize(dynamicAlign);
+
 function ready()
 {
+    dynamicAlign();
     getInstructorOfTheMonth();
     getInstructors();
 }
@@ -54,7 +57,13 @@ function getInstructorOfTheMonth()
 
 function displayInstructorOfTheMonth(instructorOfTheMonth)
 {
-    var content="<li class='instructorContainer list-group-item'><div><img src="+instructorOfTheMonth[0]['smallimage']+" class='instructorImg'></div><div class='instructorDesc'><p>"+instructorOfTheMonth[0]['firstname']+"</p><p>"+instructorOfTheMonth[0]['surname']+"</p><p>"+instructorOfTheMonth[0]['description']+"</p><p><a href='InstructorPersonalPage.html?code="+instructorOfTheMonth[0]['personid']+"'>See My Page!</a></p></br></div></li>";
+    var content="<div class='card resizable'>"+
+        "<canvas class='header-bg' width='250' height='70'"+ "id='header-blur'></canvas>"+
+        "<div class='avatar'><img src="+instructorOfTheMonth[0]['smallimage']+"></div>"+
+        "<div class='content'><p>"+instructorOfTheMonth[0]['firstname']+
+        "</p><p>"+instructorOfTheMonth[0]['surname']+"</p><p>"+instructorOfTheMonth[0]['description']+
+        "</p><p><a href='InstructorPersonalPage.html?code="+instructorOfTheMonth[0]['personid']+
+        "'>See My Page!</a></p></div></div></li></br></br>";
     $("#instructorOfTheMonth").append(content);
 }
 function getInstructors()
@@ -84,8 +93,47 @@ function displayInstructors(instructors)
 {
     for(var i = 0 ; i < instructors.length ; i++)
     {
-    var content="<li class='instructorContainer list-group-item'><div><img src="+instructors[i]['smallimage']+" class='instructorImg'></div><div class='instructorDesc'><p>"+instructors[i]['firstname']+"</p><p>"+instructors[i]['surname']+"</p><p>"+instructors[i]['description']+"</p><p><a href='InstructorPersonalPage.html?code="+instructors[i]['personid']+"'>See My Page!</a></p></div></li></br></br>";
+    var content="<div class='card resizable'>"+
+        "<canvas class='header-bg' width='250' height='70'"+ "id='header-blur'></canvas>"+
+        "<div class='avatar'><img src="+instructors[i]['smallimage']+"></div>"+
+        "<div class='content'><p>"+instructors[i]['firstname']+
+        "</p><p>"+instructors[i]['surname']+"</p><p>"+instructors[i]['description']+
+        "</p><p><a href='InstructorPersonalPage.html?code="+instructors[i]['personid']+
+        "'>See My Page!</a></p></div></div></li></br></br>";
     $("#instructrsList").append(content);
-    
     }
+}
+
+function dynamicAlign()
+{
+    var width = window.innerWidth;
+    
+    $('.resizable').each(function() {
+        dynamicReduceMargin(width,$( this ))
+    });
+}
+function dynamicReduceMargin(width,elem)
+{
+    if(width>=767)
+        dynamicMarginBig(width,elem);
+    else
+        dynamicMarginSmall(width,elem);
+}
+function dynamicMarginBig(width,elem)
+{
+    elem.css('width', function (index, curValue) {
+    return "70%";
+    });
+    elem.css('margin', function (index, curValue) {
+    return "auto";
+    });
+}
+function dynamicMarginSmall(width,elem)
+{
+    elem.css('width', function (index, curValue) {
+    return "98%";
+    });
+    elem.css('margin', function (index, curValue) {
+    return "auto%";
+    });
 }

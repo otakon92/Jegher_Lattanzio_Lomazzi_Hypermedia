@@ -1,6 +1,15 @@
+body
+{
+    padding: 0;
+    margin: 0;
+    background-color: #eee;
+}
 .offertsBox
 {
-    width: 100%;
+    width: 90%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
     background-color: #1E90FF;
     border-style: solid;
     border-color: #0F487F;
@@ -8,16 +17,7 @@
     text-align: center;
     font-family: Aharoni;
 }
-#offertsTitle
+.customLink
 {
-}
-#offertsContacts
-{
-}
-a
-{
-    text-decoration: underline;
-    text-decoration-color: white;
     color: white;
-    font-family: Aharoni;
 }
