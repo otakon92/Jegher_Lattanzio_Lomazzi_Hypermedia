@@ -5,7 +5,10 @@ $(window).resize(dynamicAlign);
 function ready()
 {
     dynamicAlign();
-    getInstructorFromDB(getFromURL());
+    code = getFromURL();
+    getInstructorFromDB(code);
+    getAllAwardsOfInstructor(code);
+    getAllCoursesOfInstructor(code);
 }
 
 function getFromURL()
@@ -49,16 +52,68 @@ function getInstructorFromDB(code)
      });  
 }
 
+
+function getAllAwardsOfInstructor(code) 
+{
+    var instructor;
+    $.ajax({
+        url:"http://biggymjll.altervista.org/getfromdb_instructors.php",
+        cache: false,
+        method:"POST", //metodo per ricevere i dati 
+        //crossDomain: setBrowserCrossDomain(),
+        data:{/* query: "SELECT awards.iconurl, awards.comment, instructors_awards.dayawarded FROM instructors, awards, instructors_awards WHERE instructors.personid='".$substrings[1]."' AND instructors.personid = instructors_awards.personid AND instructors_awards.award = awards.award;"*/
+            query:"getAllAwardsOfInstructor="+code+"="
+        },
+        success: function(response){
+           instructor=(JSON.parse(response));
+           console.log("succes");
+        },
+        error: function(request, error) {
+            console.log("error");
+        }
+    }).done(function(){
+         displayAwardsOfInstructor(instructor);
+     });  
+}
+
+
+function getAllCoursesOfInstructor(code) 
+{
+    var instructor;
+    $.ajax({
+        url:"http://biggymjll.altervista.org/getfromdb_instructors.php",
+        cache: false,
+        method:"POST", //metodo per ricevere i dati 
+        //crossDomain: setBrowserCrossDomain(),
+        data:{/* query: "SELECT courses.course_name FROM instructors, courses, instructors_courses WHERE instructors.personid='".$substrings[1]."' AND instructors.personid = instructors_courses.personid AND instructors_courses.idcourse = courses.idcourse AND instructors_courses.id_course_category = courses.id_course_categpry ;"*/
+            query:"getAllCoursesOfInstructor="+code+"="
+        },
+        success: function(response){
+           instructor=(JSON.parse(response));
+           console.log("succes");
+        },
+        error: function(request, error) {
+            console.log("error");
+        }
+    }).done(function(){
+         displayCoursesOfInstructor(instructor);
+     });  
+}
+
 function displayInstructor(instructor)
 {
     
-    if(instructor[0]['secomdname']!=null)
-    var name=""+instructor[0]['firstname']+" "+instructor[0]['secomdname']+" "+instructor[0]['surname']+"";
+    if(instructor[0]['secondname']!=null) 
+    {
+    var name=""+instructor[0]['firstname']+" "+instructor[0]['secondname']+" "+instructor[0]['surname']+"";
+    }
     else
+    {
         var name=""+instructor[0]['firstname']+" "+instructor[0]['surname']+"";
+    }
     var image ="<img src="+instructor[0]['bigimage']+">";
     
-    var descContent="<div class='traitContentHolder'><ul><li>"+
+    var descContent="<div><ul><li>"+
     "Name:"+instructor[0]['firstname']+" "+instructor[0]['surname']+
     "</li><li>Birth:"+instructor[0]['birth']+
     "</li><li>Height:"+instructor[0]['height']+" cm"+
@@ -71,18 +126,41 @@ function displayInstructor(instructor)
     "</br>Motto:</br>"+instructor[0]['motto']+
     "</div>";
     
-    var awardsContent="<div class='traitContentHolder'>"+
-        "User Rating:"+instructor[0]['userrating']+"/10</br>"+
-        "Awards:</br>";
-    var coursesContent="";
-    
     $("#sectionDescription").append(descContent);
-    $("#sectionAwards").append(awardsContent);
-    $("#sectionCourses").append(coursesContent);
     $("#instructorPersonalImage").append(image);
+    var awardsContent="<div>User Rating:"+instructor[0]['userrating']+"</div>";
+    $("#rating").append(awardsContent);
     $(".instructorName").append(name);
 }
-
+function displayAwardsOfInstructor(instructor)
+{
+    var awards="";
+    
+        if(instructor!=null)
+        {
+    for(var i =0 ; i < instructor.length ;i++) 
+    {
+        temp="<div>"+instructor[i]['comment']+""+instructor[i]['dayawarded']+"<img class='awardicon' src="+instructor[i]['iconurl']+"></div>";
+        awards=awards+temp;
+    }
+        }
+        var awardsContent="<div>"+awards+"</div>";
+    $("#sectionAwards").append(awardsContent);
+}
+function displayCoursesOfInstructor(instructor)
+{
+    var courses="";
+        if(instructor!=null)
+        {
+    for(var i =0 ; i < instructor.length ;i++) 
+    {
+        temp="<div class='course'>"+instructor[i]['course_name']+"</div>";
+        courses=courses+temp;
+    }
+        }
+        var coursesContent="<div>"+courses+"</div>";
+    $("#sectionCourses").append(coursesContent);
+}
 function dynamicAlign()
 {
     var width = window.innerWidth;

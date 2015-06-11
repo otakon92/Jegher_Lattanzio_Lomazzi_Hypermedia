@@ -1,10 +1,7 @@
 $(document).ready(ready);
 
-$(window).resize(dynamicAlign);
-
 function ready()
 {
-    dynamicAlign();
     getInstructorOfTheMonth();
     getInstructors();
 }
@@ -61,7 +58,7 @@ function displayInstructorOfTheMonth(instructorOfTheMonth)
         "<canvas class='header-bg' width='250' height='70'"+ "id='header-blur'></canvas>"+
         "<div class='avatar'><img src="+instructorOfTheMonth[0]['smallimage']+"></div>"+
         "<div class='content'><p>"+instructorOfTheMonth[0]['firstname']+
-        "</p><p>"+instructorOfTheMonth[0]['surname']+"</p><p>"+instructorOfTheMonth[0]['description']+
+        "</p><p>"+instructorOfTheMonth[0]['surname']+"</p><p>"+instructorOfTheMonth[0]['shortdescription']+
         "</p><p><a href='InstructorPersonalPage.html?code="+instructorOfTheMonth[0]['personid']+
         "'>See My Page!</a></p></div></div></li></br></br>";
     $("#instructorOfTheMonth").append(content);
@@ -93,47 +90,13 @@ function displayInstructors(instructors)
 {
     for(var i = 0 ; i < instructors.length ; i++)
     {
-    var content="<div class='card resizable'>"+
+    var content="<div class='card col-sm-12 col-xs-12 col-md-4 col-lg-4 '>"+
         "<canvas class='header-bg' width='250' height='70'"+ "id='header-blur'></canvas>"+
         "<div class='avatar'><img src="+instructors[i]['smallimage']+"></div>"+
         "<div class='content'><p>"+instructors[i]['firstname']+
-        "</p><p>"+instructors[i]['surname']+"</p><p>"+instructors[i]['description']+
+        "</p><p>"+instructors[i]['surname']+"</p><p>"+instructors[i]['shortdescription']+
         "</p><p><a href='InstructorPersonalPage.html?code="+instructors[i]['personid']+
-        "'>See My Page!</a></p></div></div></li></br></br>";
+        "'>See My Page!</a></p></div></div>";
     $("#instructrsList").append(content);
     }
-}
-
-function dynamicAlign()
-{
-    var width = window.innerWidth;
-    
-    $('.resizable').each(function() {
-        dynamicReduceMargin(width,$( this ))
-    });
-}
-function dynamicReduceMargin(width,elem)
-{
-    if(width>=767)
-        dynamicMarginBig(width,elem);
-    else
-        dynamicMarginSmall(width,elem);
-}
-function dynamicMarginBig(width,elem)
-{
-    elem.css('width', function (index, curValue) {
-    return "70%";
-    });
-    elem.css('margin', function (index, curValue) {
-    return "auto";
-    });
-}
-function dynamicMarginSmall(width,elem)
-{
-    elem.css('width', function (index, curValue) {
-    return "98%";
-    });
-    elem.css('margin', function (index, curValue) {
-    return "auto%";
-    });
 }

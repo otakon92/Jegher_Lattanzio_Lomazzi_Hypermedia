@@ -14,16 +14,10 @@ a ,a:hover
     font-size: 21px;
     color: white;
 }
-#awardIcon
-{
-    width: 80px;
-    height: 80px;
-}
-#instructorContent
+#instructorOfTheMonth
 {
     width: 98%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }
 .instructorImg
 {
@@ -35,12 +29,6 @@ a ,a:hover
 {
     display: inline-block;
     margin-left: 2%;
-}
-.instructorContainer
-{
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
 }
 .instructorTitle
 {
@@ -56,15 +44,19 @@ a ,a:hover
 }
 
 .card {
-    width: 70%;
-    margin: auto;
   overflow: hidden;
   position: relative;
   border: 1px solid #CCC;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
   padding: 0;
-  background-color: #284c79;
+    background-image: -webkit-linear-gradient(top,#337ab7 0,#265a88 100%);
+  background-image: -o-linear-gradient(top,#337ab7 0,#265a88 100%);
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#337ab7),to(#265a88));
+  background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff337ab7', endColorstr='#ff265a88', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat: repeat-x;
   color: rgb(136, 172, 217);
 }
 
@@ -76,6 +68,14 @@ a ,a:hover
   width: 100%;
   height: 70px;
   border-bottom: 1px #FFF solid;
+  background-image: -webkit-linear-gradient(top,#419641 0,#5cb85c 100%);
+  background-image: -o-linear-gradient(top,#419641 0,#5cb85c 100%);
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#419641),to(#5cb85c));
+  background-image: linear-gradient(to bottom,#419641 0,#5cb85c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff419641', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat: repeat-x;
+  border-color: #3e8f3e;
   /* This positions the canvas under the text */
   z-index: 1;
 }
@@ -86,8 +86,8 @@ a ,a:hover
 }
 
 .card .avatar img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
