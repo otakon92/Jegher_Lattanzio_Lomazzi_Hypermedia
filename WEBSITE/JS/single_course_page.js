@@ -38,7 +38,7 @@ function getCourse(categoryID, idcourse){
            
            //console.log(response);
            course=JSON.parse(response);
-           console.log(course[0]);
+           console.log(course);
         },
         error: function(request, error) {
             console.log(error);
@@ -53,7 +53,11 @@ function getCourse(categoryID, idcourse){
     //2)load up description 
         var description="<p>" + course[0]['description'] + "</p>";
         $('#description').append(description);
-    //3)load up teachers 
+    //3)load up calendar
+        loadCalendar(course);
+    //4)load up prices
+        loadPrice(course[0]['priceKids'], course[0]['priceAdults']);
+    //5)load up teachers 
         loadTeachers(categoryID, idcourse);
     });
 }
@@ -64,7 +68,7 @@ function loadTeachers(categoryID, idcourse){
         method:"POST",
         cache: false,
         crossDomain: setBrowserCrossDomain(),
-        data:{/* query: "SELECT * FROM instructors_courses JOIN instructors ON instructors_courses.PersonID=instructors.personid WHERE idcourse=idcourse AND id_course_category=categoryID;"*/
+        data:{/* query: "SELECT * FROM instructors_courses JOIN instructors ON instructors_courses.personid=instructors.personid WHERE idcourse=idcourse AND id_course_category=categoryID;"*/
             query:"getinstructors="+categoryID+"="+idcourse
         },
         success: function(response){
@@ -78,16 +82,40 @@ function loadTeachers(categoryID, idcourse){
         }
     
     }).done(function (){
-    
+    //check if there any instructors assigned
+        if(instructors==null){
+            $("#teachers").append("There are no instructors assigned to this course.");
+        }
+        else{
     //done loading instructors, we can proceed create a list for them, with a image for every instructor
         var ul="<ul class='list-group teachers-list'> </ul>";
         $("#teachers").append(ul);
-        
-        for(var i=0;i<instructors.length;i++){
-            var li= "<li class='list-group-item'> <img src='"+instructors[i]['smallimage']+"' class='teacher-small-image'> <a href='single_instructor.html?name="+instructors[i].personid+"' >" + instructors[i]['firstname'] + " " + instructors[i]['secondname'] + " " + instructors[i]['surname'] + "</a> </li>"
-            $(".teachers-list").append(li);
+            for(var i=0;i<instructors.length;i++){
+                var li= "<li class='list-group-item'> <img src='"+instructors[i]['smallimage']+"' class='teacher-small-image img-rounded'> <a href='single_instructor.html?name="+instructors[i].personid+"' >" + instructors[i]['firstname'] + " " + instructors[i]['secondname'] + " " + instructors[i]['surname'] + "</a> </li>";
+                $(".teachers-list").append(li);
+            }
         }
-    
+        
     });
 }
 
+//function that extracts from the record of the course a list of the days in which the course is held
+function loadCalendar(courseArray){
+    var ul="<ul class='list-group course-calendar-list'>";
+    for(var i=0;i<courseArray.length;i++){
+          var li= "<li class='list-group-item'>" + courseArray[i]['day'] +" - From " + courseArray[i]['startTime'] + " To " + courseArray[i]['endTime'] +"</li>";
+        ul+=li;
+    }
+    ul+="</ul>";
+    $("#calendar").append(ul);
+}
+
+//function that creates a list of the prices of the course
+function loadPrice(priceKids, priceAdults){
+    var ul="<ul class='list-group course-calendar-list'>";
+   
+          var lis= "<li class='list-group-item'> Price for Kids (MAX 6 yrs old) " + priceKids + "€/month</li><li class='list-group-item'> Price for Adults (from 13 yrs old) "+ priceAdults +"€/month</li>";
+        ul+=lis;
+    ul+="</ul>";
+    $("#prices").append(ul);
+}

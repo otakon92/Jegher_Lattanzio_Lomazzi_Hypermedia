@@ -21,21 +21,21 @@ else
 {
     
     $query=$_POST["query"];
+    //$query=$_GET["query"];
     
     $substrings=explode('=', $query);
     
     switch($substrings[0]){
-        case 'getnumberofcategories':
-            $actualQuery="SELECT COUNT(*) AS counted FROM course_categories;";
-        break;
         case 'getcoursesjoincategories':
-            $actualQuery="SELECT course_categories.id_course_category, course_categories.course_category, course_categories.cat_bg_img_path, courses.idcourse, courses.course_name FROM course_categories JOIN courses ON courses.id_course_category=course_categories.id_course_category ORDER BY id_course_category;";
+            $actualQuery="SELECT course_categories.id_course_category, course_categories.course_category, course_categories.cat_bg_img_path, courses.idcourse, courses.course_name FROM course_categories JOIN courses ON courses.id_course_category=course_categories.id_course_category ORDER BY course_categories.id_course_category, 
+courses.idcourse;";
         break;
         case 'getcourse':
-            $actualQuery="SELECT * FROM courses WHERE id_course_category=".$substrings[1]." AND idcourse=".$substrings[2].";";
+            $actualQuery="SELECT * FROM courses JOIN courses_timetable ON courses.id_course_category=courses_timetable.id_course_category AND courses.idcourse=courses_timetable.idcourse WHERE courses.id_course_category=".$substrings[1]." AND courses.idcourse=".$substrings[2].";";
             break;
         case 'getinstructors':
-            $actualQuery="SELECT * FROM instructors_courses JOIN instructors ON instructors_courses.PersonID=instructors.personid WHERE idcourse=".$substrings[2]." AND id_course_category=".$substrings[1].";";
+            $actualQuery="SELECT instructors.personid, instructors.firstname, instructors.secondname, instructors.surname, instructors.smallimage FROM instructors_courses JOIN instructors ON instructors_courses.personid=instructors.personid  WHERE instructors_courses.id_course_category=".$substrings[1]." AND instructors_courses.idcourse=".$substrings[2].";";
+            //echo $actualQuery;
             break;
     }
     
@@ -54,7 +54,7 @@ else
     
     
     
-    echo json_encode(utf8ize(array_reverse($myArray)));
+    echo json_encode(utf8ize($myArray));
     
      //free result
     $result->close();
@@ -76,4 +76,4 @@ function utf8ize($obj) {
     return $obj;
 }
 
-?>
+?>

@@ -67,17 +67,22 @@
               <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#description" aria-controls="Description" role="tab" data-toggle="tab">Description</a></li>
                 <li role="presentation"><a href="#teachers" aria-controls="teachers" role="tab" data-toggle="tab">Teachers</a></li>
-              </ul>
+                <li role="presentation"><a href="#prices" aria-controls="prices" role="tab" data-toggle="tab">Prices</a></li>
+               <li role="presentation"><a href="#calendar" aria-controls="calendar" role="tab" data-toggle="tab">Calendar</a></li>
+            </ul>
+            
 
               <!-- Tab panes -->
               <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="description"></div>
                 <div role="tabpanel" class="tab-pane" id="teachers"></div>
-                <!-- <div role="tabpanel" class="tab-pane" id="rooms"></div> -->
+                  <div role="tabpanel" class="tab-pane" id="prices"></div>
+                <div role="tabpanel" class="tab-pane" id="calendar"></div> 
               </div>
 
             </div>
        </div>
+             
         
        <footer  id="footer">
             <div class="footer_container">
@@ -128,11 +133,12 @@
                       <div class="footer_column"> 
                           <h4 class="footer_content"> SOCIAL  </h4> 
                           <div id="share" class="jssocials"> </div>
-                              <a class="twitter-timeline" data-chrome="nofooter"  href="https://twitter.com/BigGymSRL" data-widget-id="600409360561496064">
-                                  Tweet di @BigGymSRL
-                          </a>
-                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-                            </script>
+                           <!-- TWITTER API DIV -->    
+                          <div id="twitterContainer" class="panel panel-default">
+                                <div class="panel-heading">Twitter</div>
+                                <div id="twitterLastPost" class="panel-body"></div>
+                                <div id="twitterFooter" class="panel-footer"></div> 
+                          </div>   
                       </div>
                 </div>
             </footer>

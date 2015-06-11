@@ -12,10 +12,7 @@ function pageLoading(){
      //start the ajax calls by building the categories and grouping courses inside them
     groupedCourses();
 }
-/*
-function getPHPFile(){
-    return "http://biggymjll.altervista.org/getfromdb_courses.php";
-}*/
+
 
    
 /*
@@ -37,33 +34,18 @@ function groupedCourses(){
             query: "getcoursesjoincategories="
         },
         success: function(response){
-           // console.log(response);
+            
             courses_join_categories=(JSON.parse(response));
-           //console.log(courses);
+            //console.log(courses_join_categories);
             
             /*
             THE RETURNED ARRAY IN COURSES_JOIN_CATEGORIES IS ACTUALLY A JOIN. SO WE'LL HAVE A CATEGORY AND AN IDCOURSE FOR EVERY RECORD, AND CATEGORIES WILL BE DUPLICATED IF THERE ARE MORE COURSES FOR A CATEGORY. 
             WE MUST FITLER THE ARRAY: FIRST WE'LL TAKE THE CATEGORIES, THEN FOR EVERY CATEGORY WE'LL LIST THE COURSES 
             */
-           
-            //this snippet loads the categories into another array called 'categories'
-                var categories=new Array();
-               //loads up the first one category number into a counter called toCheck (it's equal to the last category because the array in the php is reversed)
-                var toCheck=courses_join_categories[0]['id_course_category'];
-                //console.log(courses_join_categories[0]);
-               //for every category, take the first instance equal to a counter of categories
-                for(var i=0; i<courses_join_categories.length;i++){
-                    //if it matches the counter, than store it into the 'categories' array, and decrement the category number (this works because the category_number is actually an Integer
-                    if(toCheck==courses_join_categories[i]['id_course_category']){
-                        categories.push(courses_join_categories[i]);
-                        //console.log(courses_join_categories[i]);
-                        toCheck=toCheck-1;
-                        //console.log(toCheck);
-                    }
-                }
             
+            var categories=getCategoriesFromArray(courses_join_categories);
             
-           // console.log(categories);
+            //console.log(categories);
             
             //then, we'll procede to create a div for every category
             for(var j=0;j<categories.length;j++){
@@ -83,13 +65,11 @@ function groupedCourses(){
                     $('#category'+categoryID).append(box_courses);
                 //then add a list inside that panel
                     $('#courses_cat'+ categoryID).append("<ul class='list-group' id='list_cat"+categoryID+"'>  </ul>");   
-                
-                 //add a click handler for the panel
-                 $('#category'+categoryID).on("click", toggleCallbackForPanel(categoryID));
                  //and then hide it at load
                  $('#courses_cat'+categoryID).css("display", "none");
             }
             
+            //FILLING COURSES LIST FOR EVERY CATEGORY
             //for every course...
             //we'll for a sub group made only of courses inside that particular category
            for(var i=0;i<categories.length;i++){
@@ -99,29 +79,32 @@ function groupedCourses(){
                    //returns an array of courses that matches the id_course_category
                });
                
-               //the id of that category will be saved for a visul optimization of the code
-               categoryID=categories[i]['id_course_category'];
+               //the id of that category will be saved for a visual optimization of the code
+               var currentCategoryID=categories[i]['id_course_category'];
                
                //console.log(courses_per_category);
                
-               //LIST CREATION
+               //COURSE LIST CREATION
                //for every course of that category
                 for(var j=0; j<courses_per_category.length;j++){
                     //append course to list
                     var idcourse=courses_per_category[j]['idcourse'];
                     var coursename=courses_per_category[j]['course_name'];
-                    $("#list_cat"+categoryID).append("<li id='el"+categoryID+idcourse +"' class='list-group-item'> <a href='#' >" + coursename + "</a> </li>");
-                    //add a click handler that change page storing data in a url
-                    $("#el"+categoryID+idcourse).on("click", changePagePassingData(categoryID,idcourse));
+                    $("#list_cat"+currentCategoryID).append("<li id='course"+currentCategoryID+idcourse +"' class='course list-group-item'> <a href='#' >" + coursename + "</a> </li>");
                     //add the name to the searchbar to be visualized as a suggestion
                     courses_searchbar.push(coursename); 
+                    
                 }
                
-            //..and on to the next course 'till the end   
+            //..and on to the next course 'till the end of the parsing  
            }
             
             
-            
+            //////////////////////CLICK HANDLERS INITIALIZAZION///////////////////////
+             //add a click handler for the panels
+             $('.category').on("click", toggleCallbackForPanelAttr);
+            //add a click handler for the list element
+            $(".course").on("click", callbackChangePagePassingData);
         },
         error: function(request, error) {
             console.log(error);
@@ -170,40 +153,43 @@ function groupedCourses(){
         ->changes the page when the suggestion is clicked*/ 
         $('.typeahead').bind('typeahead:select', function(ev, suggestion) {
             
-                //console.log('Selection: ' + suggestion);
-                
             //->takes the position of the suggestion into the array of courses
                 var position=searchIntoArray(courses_join_categories, suggestion);
-            //->defines the new url
-                var url = "single_course_page.html?idcat=" + courses_join_categories[position]['id_course_category'] + "&idcourse=" + courses_join_categories[position]['idcourse'];
-            //console.log(url);
-            //->changes the page
-           window.location.href = url; 
+            //changes the page accordingly
+            changePagePassingData("single_course_page.html", courses_join_categories[position]['id_course_category'],courses_join_categories[position]['idcourse']);
         });
     });  
 }
 
-function toggleCallbackForPanel(categoryID){
-    return function() {
-                     //console.log('#category'+categoryID);
-                     $('#courses_cat'+categoryID).toggle('slow');
-    }
 
+//function that gets the id of the panel and attaches an event handler to it to hide/show the list beneath.
+function toggleCallbackForPanelAttr(){
+        var idElement=$(this).attr("id");
+        var categoryID=idElement.slice(-1);
+        $('#courses_cat'+categoryID).toggle('slow');  
 }
 
-function changePagePassingData(categoryID, idcourse){
-    return function(){
-        var url = "single_course_page.html?idcat=" + categoryID + "&idcourse=" + idcourse;
-            window.location.href = url;
-    }
+//callback function associated to the list element calling (this): extracts with splice() the categoryID and the idcourse, and fetch it to the changePagePassingData function.
+function callbackChangePagePassingData(){
+        var id=$(this).attr("id");
+        var categoryID=id.slice(-2,-1);  //gets the categoryID
+        var idcourse=id.slice(-1); //gets the idcourse
+        changePagePassingData("single_course_page.html", categoryID, idcourse);    
 }
 
+//function that composes an url with two data as parameters and changes page accordingly
+function changePagePassingData(initialURL, firstdata, seconddata){
+     var url = initialURL + "?idcat=" + firstdata + "&idcourse=" + seconddata; //past it into the url
+     window.location.href = url; //change the page
+}
+
+//function that searches a data "suggestion" into a collection "coll" and returns its position
 function searchIntoArray(coll, suggestion){
     
     var position=0;
     
     for(var i=0;i<coll.length;i++){
-        console.log("Coll[i]: "+coll[i]['course_name']);
+        //console.log("Coll[i]: "+coll[i]['course_name']);
             if(coll[i]['course_name']==suggestion){
                 position = i;
             }
@@ -212,7 +198,26 @@ function searchIntoArray(coll, suggestion){
     return position;
 }
            
-
+//this snippet loads the categories into another array called 'categories'
+function getCategoriesFromArray(array_categories){
+                var cats=new Array();
+               //loads up the first one category number into a counter called toCheck 
+                var toCheck=array_categories[0]['id_course_category'];
+                //console.log(toCheck);
+               //for every category, take the first instance equal to a counter of categories
+                for(var i=0; i<array_categories.length;i++){
+                   // console.log(courses_join_categories.length);
+                    //if it matches the counter, than store it into the 'categories' array, and decrement the category number (this works because the category_number is actually an Integer
+                    if(toCheck==array_categories[i]['id_course_category']){
+                        cats.push(array_categories[i]);
+                        //console.log(courses_join_categories[i]);
+                        //console.log(toCheck);
+                        toCheck++;
+                        //console.log(toCheck);
+                    }
+                }
+    return cats;
+}
 
 
 

@@ -1,3 +1,17 @@
+@media (max-width: 490px) {
+   
+     h2 {
+      font-size: 1em;
+   }
+    
+    .overlay {
+      position: absolute;
+      top:5%;
+      left:0;
+      width:100%;
+}
+} 
+
 body{
     background-color:#F0F0F0;
 }
@@ -28,9 +42,26 @@ body{
   width:100%;
 }
 
+.teacher-small-image{
+    max-height: 20px;
+    max-width: 20px;
+}
+
 #info_tabpanel{
     width:100%;
     display:inline-block;
     position:relative;
     padding:5%;
+}
+
+#description{
+padding-top:3%;
+}
+
+#teachers{
+padding-top:3%;
+}
+
+#calendar{
+    padding-top:3%;
 }
