@@ -1,0 +1,76 @@
+div.index-home{
+    text-align: center;
+    color: white;
+}
+
+div.index-container{
+    padding: 5%;
+}
+
+#index-title{ 
+    background-image: url("../RES/IMAGES/index/main_div_image.jpg");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 70%;
+}
+
+#index-aboutUs{
+    background-color: rgb(100,100,250);
+    width: 100%;
+}
+
+#index-courses{
+    background-image: url("../RES/IMAGES/index/Personal-Trainer.jpg");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 70%;
+    
+}
+
+#index-offers{
+    background-color: rgb(100,100,250);
+    width: 100%;
+}
+
+#index-offers-left{
+    padding-left: 5%;
+    padding-right: 5%;
+    display: inline-block;
+}
+
+#index-offers-right{
+    padding-left: 5%;
+    padding-right: 5%;
+    display: inline-block;
+}
+
+#index-social{
+    background-color: rgb(50,50,250);
+    width: 100%;
+}
+
+p.index-title{
+    font-family: Aharoni;
+    font-size: 200%;
+}
+
+p.index-text{
+    font-family: Aharoni;
+    font-size: 150%;
+}
+
+a.index-color{
+    color: white;
+}
+
+img.index-buton{
+    height: 50;
+    width: 200;
+}
+
+img.index-social{
+    padding-left: 2%;
+    padding-right: 2%;
+    height: 80;
+    width: 80;
+}
