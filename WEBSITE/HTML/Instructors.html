@@ -36,11 +36,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#about" id="topBarAboutLink">About Us</a></li>
-            <li><a href="#contact" id="topBarCoursesLink">Courses</a></li>
-            <li><a href="#staff" id="topBarStaffLink">Staff</a></li>
-            <li><a href="Instructors.html" id="topBarTourLink">Take a Tour</a></li>
-            <li><a href="Registration.html" id="topBarJoinLink">Join Us</a></li>
+                <li><a href="#" id="topBarAboutLink">About Us</a></li>
+                <li><a href="../HTML/course_category.html" id="topBarCoursesLink">Courses</a></li>
+                <li><a href="../HTML/Instructors.html" id="topBarStaffLink">Staff</a></li>
+                <li><a href="../HTML/Registration.html" id="topBarJoinLink">Join Us</a></li>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -58,8 +57,8 @@
     </div>
             <!--footer-->
        <footer id="footer">
-            <div class="footer_container">
-                      <div class="footer_column">  
+            <div class="footer_container row">
+                      <div class="footer_column  col-sm-12 col-xs-12 col-md-4 col-lg-4 ">  
                          <h4 class="footer_content"> ABOUT US </h4> 
                           <br>
                             <p class="footer_content">
@@ -72,9 +71,12 @@
                             </p>
                       </div>
             
-                      <div class="footer_column">  
-                            <h4 class="footer_content"> LEGAL NOTES </h4> 
+                      <div class="footer_column  col-sm-12 col-xs-12 col-md-4 col-lg-4 ">  
+                          <div>
+                            <h4 class="footer_content"> LEGAL NOTES </h4>
+                            </div>
                           <br>
+                           <div>
                             <p class="footer_content"> BigGymSRL
                                 <br>
                                 18139 Davis St. 
@@ -84,7 +86,9 @@
                                 Florida 92018
                                 <br>
                             </p>
+                                </div>
                           <br>
+                           <div>
                            <h4 class="footer_content"> OPENING TIMES </h4>
                           
                           <p class="footer_content">
@@ -93,24 +97,27 @@
                             Weekends: 9:00am - 7:00pm
                            
                           </p>
-                          
+                                </div>
+                           <div>
                           <h4 class="footer_content"> NEXT SPECIAL OPENINGS </h4>
                           <p class="footer_content">
-                           <ul id="ul_footer_content" class="list-group">
+                           <ul id="ul_footer_content " class="list-group">
                                    <li class="list-group-item"> 01/08/2015 </li>
                                     <li class="list-group-item"> 01/09/2015 </li>
                                    <li class="list-group-item">01/01/2016 </li>
                                 </ul>
                           </p>
+                           </div>
                       </div>
-                      <div class="footer_column"> 
+                      <div class="footer_column  col-sm-12 col-xs-12 col-md-4 col-lg-4 "> 
                           <h4 class="footer_content"> SOCIAL  </h4> 
                           <div id="share" class="jssocials"> </div>
-                              <a class="twitter-timeline" data-chrome="nofooter"  href="https://twitter.com/BigGymSRL" data-widget-id="600409360561496064">
-                                  Tweet di @BigGymSRL
-                          </a>
-                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-                            </script>
+                              <!-- TWITTER API DIV -->    
+                          <div id="twitterContainer" class="panel panel-default">
+                                <div class="panel-heading">Twitter</div>
+                                <div id="twitterLastPost" class="panel-body"></div>
+                                <div id="twitterFooter" class="panel-footer"></div> 
+                          </div>  
                       </div>
                 </div>
             </footer>

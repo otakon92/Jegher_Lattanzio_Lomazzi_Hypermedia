@@ -36,11 +36,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#about" id="topBarAboutLink">About Us</a></li>
-            <li><a href="#contact" id="topBarCoursesLink">Courses</a></li>
-            <li><a href="Instructors.html" id="topBarStaffLink">Staff</a></li>
-            <li><a href="#takeatour" id="topBarTourLink">Take a Tour</a></li>
-            <li><a href="Registration.html" id="topBarJoinLink">Join Us</a></li>
+                <li><a href="#" id="topBarAboutLink">About Us</a></li>
+                <li><a href="../HTML/course_category.html" id="topBarCoursesLink">Courses</a></li>
+                <li><a href="../HTML/Instructors.html" id="topBarStaffLink">Staff</a></li>
+                <li><a href="../HTML/Registration.html" id="topBarJoinLink">Join Us</a></li>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -135,11 +134,12 @@
                       <div class="footer_column  col-sm-12 col-xs-12 col-md-4 col-lg-4 "> 
                           <h4 class="footer_content"> SOCIAL  </h4> 
                           <div id="share" class="jssocials"> </div>
-                              <a class="twitter-timeline" data-chrome="nofooter"  href="https://twitter.com/BigGymSRL" data-widget-id="600409360561496064">
-                                  Tweet di @BigGymSRL
-                          </a>
-                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-                            </script>
+                              <!-- TWITTER API DIV -->    
+                          <div id="twitterContainer" class="panel panel-default">
+                                <div class="panel-heading">Twitter</div>
+                                <div id="twitterLastPost" class="panel-body"></div>
+                                <div id="twitterFooter" class="panel-footer"></div> 
+                          </div>  
                       </div>
                 </div>
             </footer>
