@@ -1,0 +1,209 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BigGym-Registration</title>
+    <!-- CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+    <link href="../CSS/customNavBar.css" rel="stylesheet">
+        <link rel="stylesheet" id="font-awesome-css" href="../CSS/font-awesome.css" type="text/css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="../CSS/jssocials.css" />
+        <link rel="stylesheet" type="text/css" href="../CSS/jssocials-theme-classic.css" />
+        <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/jumbotron-narrow.css" />
+    <link href="../CSS/Registration.css" rel="stylesheet"/>
+    <!-- JAVASCRIPT -->
+        <script src="../JS/jquery-1.11.2.js"></script>
+    <script src="../JS/bootstrap.min.js"></script>
+        <script src="../JS/jssocials.js"></script>
+    <script src="../JS/ie-emulation-modes-warning.js"></script>
+    <script src="../JS/Registration.js"></script>
+        <script src="../JS/script.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top" id="topBar">
+      <div class="container" id="topBarContainer">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../index.html" id="topBarHomeLink">BIGGYM</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#about" id="topBarAboutLink">About Us</a></li>
+            <li><a href="#contact" id="topBarCoursesLink">Courses</a></li>
+            <li><a href="Instructors.html" id="topBarStaffLink">Staff</a></li>
+            <li><a href="#takeatour" id="topBarTourLink">Take a Tour</a></li>
+            <li><a href="Registration.html" id="topBarJoinLink">Join Us</a></li>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <!--Page content--> 
+        <div class="jumbotron">
+            
+      <div class="row marketing"  >
+        <div class="col-lg-6">  
+            <div id="loginForm"  >
+                <form class="form-signin" >
+        <h3 id="registerFormHeading" >Please sign in</h3>
+        <label for="inputEmail" class="sr-only"  >Email address</label>
+        <input  type="email" id="inputEmail" class="form-control customFormInput" placeholder="Email address" required autofocus>
+        <label  for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control customFormInput" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block customFormInput" type="submit">Sign in</button>
+      </form>
+            </div>  
+        </div>  
+        <div class="col-lg-6">
+            <div id="visitOffers">
+                <h3 class="offersText">
+                    Visit Our Offerts!
+                <a id="offersDivjoinUsLink" href="FEEs.html">
+                    <h2 class="offersText">
+                    Take a look at our prices
+                    </h2>
+                </a>
+            </div>
+        </div>
+      </div>
+        <div class="container" id="registrationFormContainer">
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+		<form role="form">
+			<h2>Please Sign Up. It's free and always will be.</h2>
+			<hr class="colorgraph">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<input type="text" name="display_name" id="display_name" class="form-control input-lg" placeholder="Display Name" tabindex="3">
+			</div>
+			<div class="form-group">
+				<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4 col-sm-3 col-md-3 noPadding">
+					<span class="button-checkbox">
+						<button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
+                        <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
+					</span>
+				</div>
+				<div class="col-xs-8 col-sm-9 col-md-9  noPadding  btn" id="termsAndConditions">
+					 By clicking <strong class="label label-primary">Register</strong>,</br> you agree to the</br> <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a></br> set out by this site, </br>including our Cookie Use.
+				</div>
+			</div>
+			
+			<hr class="colorgraph">
+			<div class="row">
+				<div class="col-xs-12 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+				<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Sign In</a></div>
+			</div>
+		</form>
+	</div>
+</div>
+</div>
+      </div>
+    <!--footer-->
+       <footer id="footer">
+            <div class="footer_container">
+                      <div class="footer_column">  
+                         <h4 class="footer_content"> ABOUT US </h4> 
+                          <br>
+                            <p class="footer_content">
+                                <ul id="ul_footer_content" class="list-group">
+                                    <li class="list-group-item"> <a href="#"> Our history </a> </li>
+                                    <li class="list-group-item"> <a href="#"> Our goal </a> </li>
+                                    <li class="list-group-item"> <a href="#"> Contacts </a> </li>
+                                    <li class="list-group-item"> <a href="#"> Testimonials </a> </li>
+                                </ul>
+                            </p>
+                      </div>
+            
+                      <div class="footer_column">  
+                            <h4 class="footer_content"> LEGAL NOTES </h4> 
+                          <br>
+                            <p class="footer_content"> BigGymSRL
+                                <br>
+                                18139 Davis St. 
+                                <br>
+                                Miami
+                                <br>
+                                Florida 92018
+                                <br>
+                            </p>
+                          <br>
+                           <h4 class="footer_content"> OPENING TIMES </h4>
+                          
+                          <p class="footer_content">
+                            Weekdays: 7:00am - 9:00pm
+                            <br>
+                            Weekends: 9:00am - 7:00pm
+                           
+                          </p>
+                          
+                          <h4 class="footer_content"> NEXT SPECIAL OPENINGS </h4>
+                          <p class="footer_content">
+                           <ul id="ul_footer_content" class="list-group">
+                                   <li class="list-group-item"> 01/08/2015 </li>
+                                    <li class="list-group-item"> 01/09/2015 </li>
+                                   <li class="list-group-item">01/01/2016 </li>
+                                </ul>
+                          </p>
+                      </div>
+                      <div class="footer_column"> 
+                          <h4 class="footer_content"> SOCIAL  </h4> 
+                          <div id="share" class="jssocials"> </div>
+                              <a class="twitter-timeline" data-chrome="nofooter"  href="https://twitter.com/BigGymSRL" data-widget-id="600409360561496064">
+                                  Tweet di @BigGymSRL
+                          </a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+                            </script>
+                      </div>
+                </div>
+            </footer>
+            
+           
+            <a href="#" class="back-to-top-button" style="display: inline;">
+                    <i class="fa fa-chevron-circle-up"></i>
+            </a>
+            <!--
+            <div class="navbar navbar-default navbar-fixed-bottom">
+                <div class="container">
+                    2015 - Site built by Andrea Jegher, Riccardo Lomazzi, Emanuele Lattanzio. All rights reserved
+                </div>
+            </div> --> 
+</body>
+</html>

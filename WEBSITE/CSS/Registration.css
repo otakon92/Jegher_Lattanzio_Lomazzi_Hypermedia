@@ -1,64 +1,40 @@
+
 body
 {
-    background-color: dimgray;
+    padding: 0;
+    margin: 0;
 }
-#registrationContent
+.customFormInput
 {
-    margin: 5%;
-    margin-left: 15%;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#registrationFormContainer h2
+{
+    color: white;
+}
+#registrationFormContainer
+{
+    width: 95%;
+    margin: auto;
+    padding: 0;
+    background-image: url(../RES/IMAGES/registrationPageImage.svg);
+    background-size: cover;
+}
+#termsAndConditions
+{
+    background-color: lightgray;
+    font-size: 13px;
+    color: black;
+}
+.noPadding
+{
+    width: 45%;
+    margin: auto;
     padding: 0;
 }
-#registrationContentLeftHalf
-{   
-    display: inline-block;
-    width: 49%;
-    float: left;
-}
-#registrationContentRightHalf
+.jumbotron
 {
-    display: inline-block;
-    width: 49%;
-}
-#registrationForm
-{
-    height: 40%;
-    width: 80%;
-    background-color: white;
-    margin-bottom: 2%;
-    border: 10%;
-    border-style: solid;
-    border-color: black;
-}
-#visitOffers
-{
-    height: 60%;
-    width: 80%;
-    background-color: #4388CC;
-    margin-bottom: 2%;
-    border: 10%;
-    border-style: solid;
-    border-color: #1B3280;
-}
-#loginForm
-{
-    height: 20%;
-    width: 50%;
-    background-color: #4388CC;
-    margin-bottom: 2%;
-    border: 10%;
-    border-style: solid;
-    border-color: #1B3280;
-}
-#registrationImage
-{
-    height: 80%;
-    width: 50%;
-    border: 10%;
-    border-style: solid;
-    border-color: black;
-}
-#registrationPageImage
-{
-    width: inherit;
-    height: inherit;
+    margin: 0;
 }

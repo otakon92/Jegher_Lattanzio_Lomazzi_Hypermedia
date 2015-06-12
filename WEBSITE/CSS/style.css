@@ -4,8 +4,9 @@
 }
 
 
+
 #footer{
-    display: block;
+    display: inline-block;
     width:100%;
     bottom:0px;
     margin: 0 auto;
@@ -15,14 +16,13 @@
 }
 
 div.footer_container{
+    width: 98%;
+    margin: auto;
     overflow:auto;
 }
 
 div.footer_column{
     display:inline-block;
-    width: 33.3333333333%;
-    position: relative;
-    float:left;
     padding-top:2%;
     padding-bottom: 4%;
     padding-left: 2%;
@@ -33,7 +33,9 @@ div.footer_column{
     letter-spacing: 0.7px;
     vertical-align: top;
 }
-
+.footer_column li{
+    color: black;
+}
 h4.footer_content{
     font-family: 'Open Sans', sans-serif;
     font-weight:bold;
@@ -43,7 +45,6 @@ h4.footer_content{
 #ul_footer_content{
     color:black;
 }
-
 
 .back-to-top-button {
 background: none;
