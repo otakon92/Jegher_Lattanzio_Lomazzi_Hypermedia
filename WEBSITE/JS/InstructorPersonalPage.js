@@ -8,6 +8,7 @@ function ready()
     code = getFromURL();
     getInstructorFromDB(code);
     getAllAwardsOfInstructor(code);
+    
     getAllCoursesOfInstructor(code);
 }
 
@@ -65,14 +66,14 @@ function getAllAwardsOfInstructor(code)
             query:"getAllAwardsOfInstructor="+code+"="
         },
         success: function(response){
-           instructor=(JSON.parse(response));
+           award=(JSON.parse(response));
            console.log("succes");
         },
         error: function(request, error) {
             console.log("error");
         }
     }).done(function(){
-         displayAwardsOfInstructor(instructor);
+         displayAwardsOfInstructor(award);
      });  
 }
 
@@ -113,39 +114,40 @@ function displayInstructor(instructor)
     }
     var image ="<img src="+instructor[0]['bigimage']+">";
     
-    var descContent="<div><ul><li>"+
+    var descContent="<div><ul class='list-group'><li class='list-group-item'>"+
     "Name:"+instructor[0]['firstname']+" "+instructor[0]['surname']+
-    "</li><li>Birth:"+instructor[0]['birth']+
-    "</li><li>Height:"+instructor[0]['height']+" cm"+
-    "</li><li>Weight:"+instructor[0]['weight']+" Kg"+
-    "</li><li>Member Since:"+instructor[0]['membersince']+
-    "</li><li>Favourite Color:"+instructor[0]['favouritecolor']+
-    "</ul>"+
-    "Description:</br>"+instructor[0]['description']+
-    "</br>Certifications:</br>"+instructor[0]['certifications']+
-    "</br>Motto:</br>"+instructor[0]['motto']+
-    "</div>";
+    "</li><li class='list-group-item'>Birth:"+instructor[0]['birth']+
+    "</li><li class='list-group-item'>Height:"+instructor[0]['height']+" cm"+
+    "</li><li class='list-group-item'>Weight:"+instructor[0]['weight']+" Kg"+
+    "</li><li class='list-group-item'>Member Since:"+instructor[0]['membersince']+
+    "</li><li class='list-group-item'>Favourite Color:"+instructor[0]['favouritecolor']+
+    "</li><li class='list-group-item'>Description:</br>"+instructor[0]['description']+
+    "</li><li class='list-group-item'></br>Certifications:</br>"+instructor[0]['certifications']+
+    "</li><li class='list-group-item'></br>Motto:</br>"+instructor[0]['motto']+
+    "</li></div>"+
+    "</ul>";
     
     $("#sectionDescription").append(descContent);
     $("#instructorPersonalImage").append(image);
-    var awardsContent="<div>User Rating:"+instructor[0]['userrating']+"</div>";
+    var awardsContent="<ul class='list-group'><li class='list-group-item'>User Rating:"+instructor[0]['userrating']+"</li></ul>";
     $("#rating").append(awardsContent);
     $(".instructorName").append(name);
 }
-function displayAwardsOfInstructor(instructor)
+function displayAwardsOfInstructor(award)
 {
     var awards="";
     
-        if(instructor!=null)
+        if(award!=null)
         {
-    for(var i =0 ; i < instructor.length ;i++) 
+    for(var i =0 ; i < award.length ;i++) 
     {
-        temp="<div>"+instructor[i]['comment']+""+instructor[i]['dayawarded']+"<img class='awardicon' src="+instructor[i]['iconurl']+"></div>";
+        temp="<li class='list-group-item'>"+award[i]['comment']+""+award[i]['dayawarded']+"<a data-toggle='tooltip' data-original-title='"+award[i]['description']+"'><img class='awardicon' src="+award[i]['iconurl']+"></a></li>";
         awards=awards+temp;
     }
         }
-        var awardsContent="<div>"+awards+"</div>";
+        var awardsContent="<div><ul class='list-group'>"+awards+"</ul></div>";
     $("#sectionAwards").append(awardsContent);
+    $('a').tooltip();
 }
 function displayCoursesOfInstructor(instructor)
 {
@@ -154,11 +156,11 @@ function displayCoursesOfInstructor(instructor)
         {
     for(var i =0 ; i < instructor.length ;i++) 
     {
-        temp="<div class='course'>"+instructor[i]['course_name']+"</div>";
+        temp="<li class='course list-group-item'><a href='single_course_page.html?idcat="+instructor[i]['id_course_category']+"&idcourse="+instructor[i]['idcourse']+"'>"+instructor[i]['course_name']+"</a></li>";
         courses=courses+temp;
     }
         }
-        var coursesContent="<div>"+courses+"</div>";
+        var coursesContent="<div><ul class='list-group'>"+courses+"</ul></div>";
     $("#sectionCourses").append(coursesContent);
 }
 function dynamicAlign()

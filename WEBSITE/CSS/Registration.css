@@ -1,7 +1,4 @@
-*
-{
-    font-family: Aharoni;
-}
+
 body
 {
     padding: 0;
@@ -13,12 +10,16 @@ body
     margin-left: auto;
     margin-right: auto;
 }
+#registrationFormContainer h2
+{
+    color: white;
+}
 #registrationFormContainer
 {
     width: 95%;
     margin: auto;
     padding: 0;
-    background-image: url(../RES/IMAGES/registrationPageImage.jpg);
+    background-image: url(../RES/IMAGES/registrationPageImage.svg);
     background-size: cover;
 }
 #termsAndConditions
@@ -37,26 +38,3 @@ body
 {
     margin: 0;
 }
-/*
-#visitOffers
-{
-    background-color: #29B214;
-    border-style: solid;
-    border-color: #145214;
-    color: white;
-}
-#offersDivjoinUsLink
-{
-    color: white;
-}*/
-
-/*
-#loginForm
-{
-    background-color: #4388CC;
-    border-style: solid;
-    border-color: #1B3280;
-    color: white;
-    padding: 2%;
-}
-*/

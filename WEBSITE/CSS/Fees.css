@@ -4,7 +4,12 @@ body
     margin: 0;
     background-color: #eee;
 }
-.offertsBox
+#offers
+{
+    width: 90%;
+    margin: auto;
+}
+.offersBox
 {
     width: 90%;
     margin: auto;
@@ -30,7 +35,7 @@ body
     color: white;
 }
 
-.offert
+.offer
 {
     border-radius: 15px;
   padding: 14px 24px;

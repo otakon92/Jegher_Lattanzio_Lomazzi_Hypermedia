@@ -54,13 +54,14 @@ function getInstructorOfTheMonth()
 
 function displayInstructorOfTheMonth(instructorOfTheMonth)
 {
-    var content="<div class='card resizable'>"+
+    var content="<a href='InstructorPersonalPage.html?code="+instructorOfTheMonth[0]['personid']+
+        "'><div class='card resizable'>"+
         "<canvas class='header-bg' width='250' height='70'"+ "id='header-blur'></canvas>"+
         "<div class='avatar'><img src="+instructorOfTheMonth[0]['smallimage']+"></div>"+
         "<div class='content'><p>"+instructorOfTheMonth[0]['firstname']+
         "</p><p>"+instructorOfTheMonth[0]['surname']+"</p><p>"+instructorOfTheMonth[0]['shortdescription']+
         "</p><p><a href='InstructorPersonalPage.html?code="+instructorOfTheMonth[0]['personid']+
-        "'>See My Page!</a></p></div></div></li></br></br>";
+        "'>See My Page!</a></p></div></div></a>";
     $("#instructorOfTheMonth").append(content);
 }
 function getInstructors()
@@ -90,13 +91,14 @@ function displayInstructors(instructors)
 {
     for(var i = 0 ; i < instructors.length ; i++)
     {
-    var content="<div class='card col-sm-12 col-xs-12 col-md-4 col-lg-4 '>"+
+    var content="<a href='InstructorPersonalPage.html?code="+instructors[i]['personid']+
+        "'><div class='card col-sm-12 col-xs-12 col-md-4 col-lg-4 '>"+
         "<canvas class='header-bg' width='250' height='70'"+ "id='header-blur'></canvas>"+
         "<div class='avatar'><img src="+instructors[i]['smallimage']+"></div>"+
         "<div class='content'><p>"+instructors[i]['firstname']+
         "</p><p>"+instructors[i]['surname']+"</p><p>"+instructors[i]['shortdescription']+
-        "</p><p><a href='InstructorPersonalPage.html?code="+instructors[i]['personid']+
-        "'>See My Page!</a></p></div></div>";
+        "</p><p><a id='personalPageLink' href='InstructorPersonalPage.html?code="+instructors[i]['personid']+
+        "'>See My Page!</a></p></div></div></a>";
     $("#instructrsList").append(content);
     }
 }

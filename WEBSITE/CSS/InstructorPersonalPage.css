@@ -18,17 +18,17 @@ body
     display: inline-block;
     margin-left: 2%;
 }
+#vote
+{
+    margin-bottom: 1%;
+}
 .traitContentHolder
 {
     display: inline-block;
     background-color: #0F487F;
-    color: white;
-    font-family: Aharoni;
-    text-align: justify;
     padding: 5%;
     padding-left: 10%;
     min-height: 450px;
-    max-height: 500px;
 }
 .traitContenSelector
 {

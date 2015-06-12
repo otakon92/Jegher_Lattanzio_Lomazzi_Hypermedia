@@ -9,10 +9,10 @@ p
     font-family: Aharoni;
     color: white;
 }
-a ,a:hover
+a:hover, a:visited, a:link, a:active
 {
-    font-size: 21px;
     color: white;
+    text-decoration: none;
 }
 #instructorOfTheMonth
 {
