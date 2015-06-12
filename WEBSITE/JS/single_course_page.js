@@ -93,7 +93,7 @@ function loadTeachers(categoryID, idcourse){
         var ul="<ul class='list-group teachers-list'> </ul>";
         $("#teachers").append(ul);
             for(var i=0;i<instructors.length;i++){
-                var li= "<li class='list-group-item'> <img src='"+instructors[i]['smallimage']+"' class='teacher-small-image img-rounded'> <a href='single_instructor.html?name="+instructors[i].personid+"' >" + instructors[i]['firstname'] + " " + instructors[i]['secondname'] + " " + instructors[i]['surname'] + "</a> </li>";
+                var li= "<li class='list-group-item'> <img src='"+instructors[i]['smallimage']+"' class='teacher-small-image img-rounded'> <a href='InstructorPersonalPage.html?code="+instructors[i].personid+"' >" + instructors[i]['firstname'] + " " + instructors[i]['secondname'] + " " + instructors[i]['surname'] + "</a> </li>";
                 $(".teachers-list").append(li);
             }
         }
