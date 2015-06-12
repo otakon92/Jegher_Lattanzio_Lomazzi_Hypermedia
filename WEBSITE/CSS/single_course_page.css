@@ -16,6 +16,10 @@ body{
     background-color:#F0F0F0;
 }
 
+.tab-pane{
+padding:3%;
+}
+
 #course_container{
     text-align: center;
     width:100%;
@@ -51,7 +55,12 @@ body{
     width:100%;
     display:inline-block;
     position:relative;
-    padding:5%;
+    padding-left:3%;
+    padding-right:3%;
+}
+
+#tabcontent{
+padding3%;
 }
 
 #description{

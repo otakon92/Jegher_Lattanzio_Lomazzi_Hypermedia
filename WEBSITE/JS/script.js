@@ -59,7 +59,7 @@ function getTwitterPosts(){
         crossDomain: setBrowserCrossDomain(),
         success: function(response){
            resp=JSON.parse(response);
-          // console.log(resp);
+           console.log(resp);
         },
         error: function(request, error) {
             console.log(resp);

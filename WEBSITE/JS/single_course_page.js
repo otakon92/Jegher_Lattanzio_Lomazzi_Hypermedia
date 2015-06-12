@@ -38,7 +38,7 @@ function getCourse(categoryID, idcourse){
            
            //console.log(response);
            course=JSON.parse(response);
-           console.log(course);
+           //console.log(course);
         },
         error: function(request, error) {
             console.log(error);
@@ -46,6 +46,8 @@ function getCourse(categoryID, idcourse){
     }).done(function() {
     //change page title
      $('title').html("BigGym - " + course[0]['course_name']);
+        //create breadcrump
+        $('.breadcrumps').html("<a href='./index.html'>Home </a>> <a href='course_category.html'> Courses </a>> "+ course[0]['course_name'] +"");
     //begin copying data into tabs
     //1) the div containing the main image of the course
         var boxcourse="<img src='" + course[0]['main_image_path'] + "' class='course_image img-rounded'/> <div class='overlay'> <h2 class='course_name'> " + course[0]['course_name'] + "</h2> </div>";
