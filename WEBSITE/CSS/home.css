@@ -97,6 +97,11 @@ p.index-title{
     font-size: 200%;
 }
 
+p.index-title-description{
+    font-family: Aharoni;
+    font-size: 200%;
+}
+
 p.index-text{
     font-family: Aharoni;
     font-size: 150%;
