@@ -110,7 +110,7 @@ function displayInstructor(instructor)
     }
     else
     {
-        var name=""+instructor[0]['firstname']+" "+instructor[0]['surname']+"";
+        var name=" "+instructor[0]['firstname']+" "+instructor[0]['surname']+"";
     }
     var image ="<img src="+instructor[0]['bigimage']+">";
     

@@ -62,3 +62,10 @@ body
     width: 20px;
     height: 20px;
 }
+@media (min-width: 768px)
+{
+.navbar-nav 
+{
+  float: none;
+}
+}
