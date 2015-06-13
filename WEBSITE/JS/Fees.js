@@ -11,7 +11,7 @@ function getOffers(){
         url:"http://biggymjll.altervista.org/getfromdb_offers.php",
         cache: false,
         method:"POST", //metodo per ricevere i dati 
-        //crossDomain: setBrowserCrossDomain(),
+        crossDomain: setBrowserCrossDomain(),
         data:{/* query: "SELECT COUNT(*) AS counted FROM instructors;"*/
             query:"getOffers="
         },

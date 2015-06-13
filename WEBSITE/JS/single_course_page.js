@@ -116,7 +116,7 @@ function loadCalendar(courseArray){
 function loadPrice(priceKids, priceAdults){
     var ul="<ul class='list-group course-calendar-list'>";
    
-          var lis= "<li class='list-group-item'> Price for Kids (MAX 6 yrs old) " + priceKids + "€/month</li><li class='list-group-item'> Price for Adults (from 13 yrs old) "+ priceAdults +"€/month</li>";
+          var lis= "<li class='list-group-item'> Price for Kids (MAX 6 yrs old) " + priceKids + "$/month</li><li class='list-group-item'> Price for Adults (from 13 yrs old) "+ priceAdults +"$/month</li>";
         ul+=lis;
     ul+="</ul>";
     $("#prices").append(ul);

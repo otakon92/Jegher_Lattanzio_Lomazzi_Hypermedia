@@ -23,6 +23,7 @@ $(document).ready(function () {
             shares: ["email", "facebook"]
         });
     
+    loadFooter();
     getTwitterPosts();
     
 });
@@ -36,6 +37,9 @@ function getPHPFile(phpSite){
         case 'twitter':
             str="http://biggymjll.altervista.org/getFromTwitter.php";
         break;
+        case 'footer':
+str="http://biggymjll.altervista.org/getFooter.php";
+        break;
     }
     return str;
 }
@@ -48,6 +52,34 @@ function setBrowserCrossDomain(){
         return false;
 }
 
+function loadFooter(){
+    var resp;
+    $.ajax({
+        url:getPHPFile('footer'),
+        method:"POST", //metodo per ricevere i dati  
+        cache: false,
+        crossDomain: setBrowserCrossDomain(),
+        data:{
+            query:"getFooter="
+        },
+        success: function(response){
+           resp=JSON.parse(response);
+           //console.log(resp);
+        },
+        error: function(request, error) {
+            console.log(resp);
+        }
+    }).done(function(){
+        //begin the footer styling
+        //insert the address
+        $('#address').append(resp[0]['address']);
+        //insert the opening times
+        $('#opening_times').append(resp[0]['opening_times']);
+        //insert the special openings
+        $('#special_openings').append(resp[0]['special_openings']);
+    });
+}
+
 function getTwitterPosts(){
     var resp;
     $.ajax({
@@ -57,7 +89,7 @@ function getTwitterPosts(){
         crossDomain: setBrowserCrossDomain(),
         success: function(response){
            resp=JSON.parse(response);
-           console.log(resp);
+          // console.log(resp);
         },
         error: function(request, error) {
             console.log(resp);

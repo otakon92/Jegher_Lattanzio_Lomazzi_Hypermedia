@@ -81,6 +81,10 @@ div.AboutUs-contenute{
     margin-right: 8%;
 }
 
+.link{
+color:white;
+}
+
 input.AboutUs{
     color: black;
 }
@@ -103,4 +107,11 @@ a.AboutUs-title-bar{
 p.AboutUs-text{
     font-family: Aharoni;
     font-size: 150%;
+}
+
+#map-canvas{
+height:500px;
+width:100%;
+    margin: auto;
+    padding-top:3%;
 }

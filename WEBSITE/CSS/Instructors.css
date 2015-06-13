@@ -93,3 +93,7 @@ p
   border-radius: 50%;
   border: 5px solid rgba(0,0,30,0.8);
 }
+
+.list-group-item a{
+color:black;
+}

@@ -12,7 +12,7 @@ function getNumberOfInstructors(){
         url:"http://biggymjll.altervista.org/getfromdb_instructors.php",
         cache: false,
         method:"POST", //metodo per ricevere i dati 
-        //crossDomain: setBrowserCrossDomain(),
+        crossDomain: setBrowserCrossDomain(),
         data:{/* query: "SELECT COUNT(*) AS counted FROM instructors;"*/
             query:"getnumberofInstructors="
         },

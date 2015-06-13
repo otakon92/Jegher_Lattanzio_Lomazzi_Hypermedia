@@ -6,7 +6,7 @@ function getInformation(){
         url:"http://biggymjll.altervista.org/getfromdb_Home.php",
         cache: false,
         method:"POST", //metodo per ricevere i dati 
-        //crossDomain: setBrowserCrossDomain(),
+        crossDomain: setBrowserCrossDomain(),
         data:{
             query:"getAll="
         },
