@@ -37,7 +37,7 @@ function getInstructorFromDB(code)
         url:"http://biggymjll.altervista.org/getfromdb_instructors.php",
         cache: false,
         method:"POST", //metodo per ricevere i dati 
-        //crossDomain: setBrowserCrossDomain(),
+        crossDomain: setBrowserCrossDomain(),
         data:{/* query: "SELECT * FROM instructors WHERE instructors.personid=".$substrings[1].";"*/
             query:"getSingleInstructor="+code+"="
         },
@@ -61,7 +61,7 @@ function getAllAwardsOfInstructor(code)
         url:"http://biggymjll.altervista.org/getfromdb_instructors.php",
         cache: false,
         method:"POST", //metodo per ricevere i dati 
-        //crossDomain: setBrowserCrossDomain(),
+        crossDomain: setBrowserCrossDomain(),
         data:{/* query: "SELECT awards.iconurl, awards.comment, instructors_awards.dayawarded FROM instructors, awards, instructors_awards WHERE instructors.personid='".$substrings[1]."' AND instructors.personid = instructors_awards.personid AND instructors_awards.award = awards.award;"*/
             query:"getAllAwardsOfInstructor="+code+"="
         },
@@ -85,7 +85,7 @@ function getAllCoursesOfInstructor(code)
         url:"http://biggymjll.altervista.org/getfromdb_instructors.php",
         cache: false,
         method:"POST", //metodo per ricevere i dati 
-        //crossDomain: setBrowserCrossDomain(),
+        crossDomain: setBrowserCrossDomain(),
         data:{/* query: "SELECT courses.course_name FROM instructors, courses, instructors_courses WHERE instructors.personid='".$substrings[1]."' AND instructors.personid = instructors_courses.personid AND instructors_courses.idcourse = courses.idcourse AND instructors_courses.id_course_category = courses.id_course_categpry ;"*/
             query:"getAllCoursesOfInstructor="+code+"="
         },
