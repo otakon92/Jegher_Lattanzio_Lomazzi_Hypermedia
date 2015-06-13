@@ -9,7 +9,7 @@ p
     font-family: Aharoni;
     color: white;
 }
-a:hover, a:visited, a:link, a:active
+#instructorsContent a:hover,#instructorsContent a:visited,#instructorsContent a:link,#instructorsContent a:active
 {
     color: white;
     text-decoration: none;
