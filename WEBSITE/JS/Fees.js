@@ -8,7 +8,7 @@ function ready()
 function getOffers(){
     var offerts;
      $.ajax({
-        url:"http://biggymjll.altervista.org/getfromdb_offers.php",
+        url:getPHPFile('offers'),
         cache: false,
         method:"POST", //metodo per ricevere i dati 
         crossDomain: setBrowserCrossDomain(),

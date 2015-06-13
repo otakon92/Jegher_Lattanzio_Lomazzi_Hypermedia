@@ -30,7 +30,7 @@ else
             $actualQuery="SELECT COUNT(*) AS counted FROM instructors;";
         break;
         case 'getInstructorOfTheMonth':
-            $actualQuery="SELECT instructors.personid, instructors.firstname, instructors.surname, instructors.shortdescription, instructors.smallimage, awards.iconurl FROM instructors ,instructors_awards ,awards WHERE instructors.personid=instructors_awards.personid AND awards.award = 'InstructorOfTheMonth' AND instructors_awards.award = awards.award ";
+            $actualQuery="SELECT instructors.personid, instructors.firstname, instructors.surname, instructors.shortdescription, instructors.smallimage, awards.iconurl ,instructors_awards.dayawarded FROM instructors ,instructors_awards ,awards WHERE instructors.personid=instructors_awards.personid AND awards.award = 'InstructorOfTheMonth' AND instructors_awards.award = awards.award ORDER BY instructors_awards.dayawarded ";
         break;
         case 'getAllInstructors':
             $actualQuery="SELECT instructors.personid, instructors.firstname, instructors.surname, instructors.shortdescription, instructors.smallimage FROM instructors ORDER BY instructors.firstname DESC";

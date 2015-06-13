@@ -3,7 +3,7 @@ $(document).ready(getInformation());
 function getInformation(){
     var info;
      $.ajax({
-        url:"http://biggymjll.altervista.org/getfromdb_Home.php",
+        url:getPHPFile('home'),
         cache: false,
         method:"POST", //metodo per ricevere i dati 
         crossDomain: setBrowserCrossDomain(),
@@ -11,7 +11,7 @@ function getInformation(){
             query:"getAll="
         },
         success: function(response){
-            console.log(response);
+           // console.log(response);
            info=(JSON.parse(response));
            //console.log(total_number);
         },

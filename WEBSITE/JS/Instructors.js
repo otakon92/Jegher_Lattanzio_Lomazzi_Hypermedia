@@ -9,7 +9,7 @@ function ready()
 function getNumberOfInstructors(){
     var total_number;
      $.ajax({
-        url:"http://biggymjll.altervista.org/getfromdb_instructors.php",
+        url:getPHPFile('instructors'),
         cache: false,
         method:"POST", //metodo per ricevere i dati 
         crossDomain: setBrowserCrossDomain(),
@@ -33,7 +33,7 @@ function getInstructorOfTheMonth()
 {
     var instructorOfTheMonth;
     $.ajax({
-        url:"http://biggymjll.altervista.org/getfromdb_instructors.php",
+        url:getPHPFile('instructors'),
         cache: false,
         method:"POST", //metodo per ricevere i dati 
         //crossDomain: setBrowserCrossDomain(),
@@ -68,7 +68,7 @@ function getInstructors()
 {
     var instructors;
     $.ajax({
-        url:"http://biggymjll.altervista.org/getfromdb_instructors.php",
+        url:getPHPFile('instructors'),
         cache: false,
         method:"POST", //metodo per ricevere i dati 
         //crossDomain: setBrowserCrossDomain(),

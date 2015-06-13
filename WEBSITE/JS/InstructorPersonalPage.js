@@ -34,7 +34,7 @@ function getInstructorFromDB(code)
 {
     var instructor;
     $.ajax({
-        url:"http://biggymjll.altervista.org/getfromdb_instructors.php",
+        url:getPHPFile('instructors'),
         cache: false,
         method:"POST", //metodo per ricevere i dati 
         crossDomain: setBrowserCrossDomain(),
@@ -58,7 +58,7 @@ function getAllAwardsOfInstructor(code)
 {
     var instructor;
     $.ajax({
-        url:"http://biggymjll.altervista.org/getfromdb_instructors.php",
+        url:getPHPFile('instructors'),
         cache: false,
         method:"POST", //metodo per ricevere i dati 
         crossDomain: setBrowserCrossDomain(),
@@ -82,7 +82,7 @@ function getAllCoursesOfInstructor(code)
 {
     var instructor;
     $.ajax({
-        url:"http://biggymjll.altervista.org/getfromdb_instructors.php",
+        url:getPHPFile('instructors'),
         cache: false,
         method:"POST", //metodo per ricevere i dati 
         crossDomain: setBrowserCrossDomain(),

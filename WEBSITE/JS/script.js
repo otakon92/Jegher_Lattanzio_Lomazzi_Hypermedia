@@ -34,12 +34,20 @@ function getPHPFile(phpSite){
         case 'courses':  
             str="http://biggymjll.altervista.org/getfromdb_courses.php";
         break;
-        case 'twitter':
-            str="http://biggymjll.altervista.org/getFromTwitter.php";
+        case 'twitter': str="http://biggymjll.altervista.org/getFromTwitter.php";
         break;
         case 'footer':
 str="http://biggymjll.altervista.org/getFooter.php";
+        case 'instructors': str="http://biggymjll.altervista.org/getfromdb_instructors.php";
         break;
+        case 'home':     str="http://biggymjll.altervista.org/getfromdb_Home.php";
+            break;
+        case 'aboutus':
+     str="http://biggymjll.altervista.org/getfromdb_AboutUs.php";
+            break;
+        case 'offers':
+    str="http://biggymjll.altervista.org/getfromdb_offers.php";
+            break;
     }
     return str;
 }

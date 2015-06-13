@@ -17,7 +17,7 @@ $(document).ready(function() {
 function getInformation(params){
     var info;
      $.ajax({
-        url:"http://biggymjll.altervista.org/getfromdb_AboutUs.php",
+        url:getPHPFile('aboutus'),
         cache: false,
         method:"POST", //metodo per ricevere i dati 
         //crossDomain: setBrowserCrossDomain(),
