@@ -20,7 +20,7 @@ function getInformation(params){
         url:getPHPFile('aboutus'),
         cache: false,
         method:"POST", //metodo per ricevere i dati 
-        //crossDomain: setBrowserCrossDomain(),
+        crossDomain: setBrowserCrossDomain(),
         data:{
             query:"getAll="
         },

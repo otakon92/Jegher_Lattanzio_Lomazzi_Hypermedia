@@ -36,7 +36,7 @@ function getInstructorOfTheMonth()
         url:getPHPFile('instructors'),
         cache: false,
         method:"POST", //metodo per ricevere i dati 
-        //crossDomain: setBrowserCrossDomain(),
+        crossDomain: setBrowserCrossDomain(),
         data:{/* query: "SELECT instructors.firstname, instructors.surname, instructors.description, instructors.smallimage, awards.iconurl FROM instructors ,instructors_awards ,awards WHERE instructors.personid=instructors_awards.personid AND awards.award = 'InstructorOfTheMonth' AND instructors_awards.award = awards.award ";"*/
             query:"getInstructorOfTheMonth="
         },
@@ -71,7 +71,7 @@ function getInstructors()
         url:getPHPFile('instructors'),
         cache: false,
         method:"POST", //metodo per ricevere i dati 
-        //crossDomain: setBrowserCrossDomain(),
+        crossDomain: setBrowserCrossDomain(),
         data:{/* query: "SELECT instructors.firstname, instructors.surname, instructors.description, instructors.smallimage FROM instructors"*/
             query:"getAllInstructors="
         },
