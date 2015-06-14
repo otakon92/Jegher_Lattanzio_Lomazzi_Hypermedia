@@ -38,7 +38,7 @@ function getInformation(params){
         
          $(".AboutUs-History-box").append(info[0]['History']);
          $(".AboutUs-Goal-box").append(info[0]['Goal']);
-         $(".AboutUs-Contact-right").append(info[0]['Contact']+"<br><br><br>");
+         $(".AboutUs-Contact-right").append(info[0]['Contact']+"<br><br><br><br><br>");
          
         var testimonials = info[0]['Testimonial'].split('|');
         for(i = 0 ; testimonials[i] ; i++) {
