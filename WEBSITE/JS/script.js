@@ -38,6 +38,7 @@ function getPHPFile(phpSite){
         break;
         case 'footer':
 str="http://biggymjll.altervista.org/getFooter.php";
+        break;
         case 'instructors': str="http://biggymjll.altervista.org/getfromdb_instructors.php";
         break;
         case 'home':     str="http://biggymjll.altervista.org/getfromdb_Home.php";
